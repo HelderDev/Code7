@@ -1,0 +1,12 @@
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.Services\bin\Debug\netcoreapp3.1\WeChip.Services.deps.json
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.Services\bin\Debug\netcoreapp3.1\WeChip.Services.dll
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.Services\bin\Debug\netcoreapp3.1\WeChip.Services.pdb
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.Services\bin\Debug\netcoreapp3.1\WeChip.Domain.dll
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.Services\bin\Debug\netcoreapp3.1\WeChip.Domain.pdb
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.Services\obj\Debug\netcoreapp3.1\WeChip.Services.csprojAssemblyReference.cache
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.Services\obj\Debug\netcoreapp3.1\WeChip.Services.AssemblyInfoInputs.cache
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.Services\obj\Debug\netcoreapp3.1\WeChip.Services.AssemblyInfo.cs
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.Services\obj\Debug\netcoreapp3.1\WeChip.Services.csproj.CoreCompileInputs.cache
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.Services\obj\Debug\netcoreapp3.1\WeChip.Services.csproj.CopyComplete
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.Services\obj\Debug\netcoreapp3.1\WeChip.Services.dll
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.Services\obj\Debug\netcoreapp3.1\WeChip.Services.pdb

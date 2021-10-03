@@ -1,0 +1,51 @@
+﻿@using WeChip.Model.ViewModels
+@model ClientRegisterViewModel
+@{
+    ViewData["Title"] = "RegisterClient";
+}
+
+<div class="container">
+    <form asp-action="RegisterClient" asp-controller="Client" method="post">
+        <div class="row">
+            <div class="col">
+                <label>Nome</label>
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-3">
+                <label>CPF</label>
+                @Html.TextBoxFor(m => m.CPF, new { @class = "form-control", @maxlength = "14", @id = "cpfInput", @placeholder = "000.000.000-00", @oninput = "cpfChange(this.value)" })
+                @Html.ValidationMessageFor(m => m.CPF, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label>Telefone</label>
+                @Html.TextBoxFor(m => m.Phone, new { @class = "form-control", @id = "phone", @name = "phone", @onkeypress = "mask(this, mphone);", @onblur = "mask(this, mphone);" })
+                @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-3">
+                <label>Crédito</label>
+                @Html.TextBoxFor(m => m.Credit, new { @class = "form-control", @id = "currency" })
+                @Html.ValidationMessageFor(m => m.Credit, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <button type="submit" class="btn btn-primary btn-block">Registrar Cliente</button>
+        </div>
+    </form>
+</div>
+<script>
+    $(function () {
+        //id('phone').onkeypress = function () {
+        //    mask(this, mtel);
+        //}
+        $('#currency').maskMoney();
+    })
+    //window.onload = function () {
+     
+    //}
+
+</script>
+

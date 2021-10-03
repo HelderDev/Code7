@@ -1,0 +1,21 @@
+﻿@using WeChip.Model.ViewModels
+@model ClientRegisterViewModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="container">
+    <form asp-action="OfferClient" asp-controller="Client" method="post">
+        <div class="row">
+            <div class="col">
+                <label>Nome</label>
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+            </div>
+            
+        </div>
+       
+    </form>
+</div>

@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "WeChip.Services/1.0.0": {
+        "dependencies": {
+          "WeChip.Domain": "1.0.0"
+        },
+        "runtime": {
+          "WeChip.Services.dll": {}
+        }
+      },
+      "WeChip.Domain/1.0.0": {
+        "runtime": {
+          "WeChip.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "WeChip.Services/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "WeChip.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
