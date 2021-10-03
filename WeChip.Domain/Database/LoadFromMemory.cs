@@ -15,6 +15,9 @@ namespace WeChip.Domain.Database
 
             ClientList.Add(client);
         }
+        public static IEnumerable<ClientModel> LoadClient() {
+            return ClientList;
+        }
     }
 }
 

@@ -15,7 +15,7 @@ namespace WeChip.Services.Concrete
 
         IEnumerable<Domain.Models.ClientModel> IClientService.GetAll()
         {
-            throw new NotImplementedException();
+            return LoadFromMemory.LoadClient();
         }
 
         void IClientService.Insert(Domain.Models.ClientModel client)

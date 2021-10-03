@@ -2238,7 +2238,8 @@
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
           "AspNetWebPages.Core": "2.0.20710",
-          "Microsoft.AspNetCore.Mvc.Core": "2.2.5"
+          "Microsoft.AspNetCore.Mvc.Core": "2.2.5",
+          "WeChip.Domain": "1.0.0"
         },
         "compile": {
           "bin/placeholder/WeChip.Model.dll": {}

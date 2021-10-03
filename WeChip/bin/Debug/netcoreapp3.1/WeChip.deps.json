@@ -1811,7 +1811,8 @@
       "WeChip.Model/1.0.0": {
         "dependencies": {
           "AspNetWebPages.Core": "2.0.20710",
-          "Microsoft.AspNetCore.Mvc.Core": "2.2.5"
+          "Microsoft.AspNetCore.Mvc.Core": "2.2.5",
+          "WeChip.Domain": "1.0.0"
         },
         "runtime": {
           "WeChip.Model.dll": {}

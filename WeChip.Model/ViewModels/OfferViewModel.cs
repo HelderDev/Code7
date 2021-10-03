@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using WeChip.Domain.Models;
 
 namespace WeChip.Model.ViewModels
 {
     public class OfferViewModel
     {
-        public List<ClientRegisterViewModel> Clients { get; set; }
+        public List<ClientModel> Clients { get; set; }
     }
 }

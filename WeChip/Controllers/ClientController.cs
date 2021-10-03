@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 using WeChip.Helpers;
 using WeChip.Model.ViewModels;
 using WeChip.Services.Concrete;
@@ -36,7 +37,12 @@ namespace WeChip.Controllers
         }
         public IActionResult OfferClient()
         {
-            return View();
+            var clients = _clientService.GetAll();
+            var offer = new OfferViewModel()
+            {
+                Clients = clients != null ? clients.ToList() : null
+            };
+            return View(offer);
         }
      }
 }

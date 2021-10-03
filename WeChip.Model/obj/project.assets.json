@@ -1067,6 +1067,16 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
+      },
+      "WeChip.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/WeChip.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/WeChip.Domain.dll": {}
+        }
       }
     }
   },
@@ -3962,12 +3972,18 @@
         "system.xml.xdocument.4.0.11.nupkg.sha512",
         "system.xml.xdocument.nuspec"
       ]
+    },
+    "WeChip.Domain/1.0.0": {
+      "type": "project",
+      "path": "../WeChip.Domain/WeChip.Domain.csproj",
+      "msbuildProject": "../WeChip.Domain/WeChip.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "AspNetWebPages.Core >= 2.0.20710",
-      "Microsoft.AspNetCore.Mvc.Core >= 2.2.5"
+      "Microsoft.AspNetCore.Mvc.Core >= 2.2.5",
+      "WeChip.Domain >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -3996,7 +4012,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Helder\\source\\repos\\ProvaPratica_Code7\\WeChip.Domain\\WeChip.Domain.csproj": {
+              "projectPath": "C:\\Users\\Helder\\source\\repos\\ProvaPratica_Code7\\WeChip.Domain\\WeChip.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

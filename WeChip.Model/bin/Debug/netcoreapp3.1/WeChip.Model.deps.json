@@ -9,7 +9,8 @@
       "WeChip.Model/1.0.0": {
         "dependencies": {
           "AspNetWebPages.Core": "2.0.20710",
-          "Microsoft.AspNetCore.Mvc.Core": "2.2.5"
+          "Microsoft.AspNetCore.Mvc.Core": "2.2.5",
+          "WeChip.Domain": "1.0.0"
         },
         "runtime": {
           "WeChip.Model.dll": {}
@@ -780,6 +781,11 @@
           "System.Threading": "4.0.11",
           "System.Xml.ReaderWriter": "4.0.11"
         }
+      },
+      "WeChip.Domain/1.0.0": {
+        "runtime": {
+          "WeChip.Domain.dll": {}
+        }
       }
     }
   },
@@ -1327,6 +1333,11 @@
       "sha512": "sha512-Mk2mKmPi0nWaoiYeotq1dgeNK1fqWh61+EK+w4Wu8SWuTYLzpUnschb59bJtGywaPq7SmTuPf44wrXRwbIrukg==",
       "path": "system.xml.xdocument/4.0.11",
       "hashPath": "system.xml.xdocument.4.0.11.nupkg.sha512"
+    },
+    "WeChip.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

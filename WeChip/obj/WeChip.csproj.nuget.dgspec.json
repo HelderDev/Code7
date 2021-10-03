@@ -81,7 +81,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\Helder\\source\\repos\\ProvaPratica_Code7\\WeChip.Domain\\WeChip.Domain.csproj": {
+                "projectPath": "C:\\Users\\Helder\\source\\repos\\ProvaPratica_Code7\\WeChip.Domain\\WeChip.Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
