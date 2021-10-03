@@ -19,9 +19,9 @@ namespace WeChip.Controllers
         }
         public IActionResult RegisterClient()
         {
-
             return View();
         }
+
         [HttpPost]
         public IActionResult RegisterClient(ClientRegisterViewModel clientRegister)
         {
@@ -43,6 +43,11 @@ namespace WeChip.Controllers
                 Clients = clients != null ? clients.ToList() : null
             };
             return View(offer);
+        }
+        public IActionResult LinkOfferClient(string clientCPF)
+        {
+            var client = _clientService.Get(clientCPF);
+            return View(client.ToLinkOfferView());
         }
      }
 }

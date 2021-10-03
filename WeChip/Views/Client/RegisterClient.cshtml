@@ -38,7 +38,10 @@
 </div>
 <script>
     $(function () {
-        $('#currency').maskMoney();
+        $('#currency').maskMoney({
+            "thousands": ".",
+            "decimal": ","
+        });
     })
 </script>
 

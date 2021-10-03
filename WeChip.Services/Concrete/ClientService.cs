@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using WeChip.Domain.Database;
 using WeChip.Services.Interface;
@@ -10,7 +11,7 @@ namespace WeChip.Services.Concrete
     {
         Domain.Models.ClientModel IClientService.Get(string CPF)
         {
-            throw new NotImplementedException();
+            return LoadFromMemory.LoadClient().FirstOrDefault(c=>c.CPF == CPF);
         }
 
         IEnumerable<Domain.Models.ClientModel> IClientService.GetAll()

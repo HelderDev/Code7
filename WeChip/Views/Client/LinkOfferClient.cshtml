@@ -1,0 +1,93 @@
+﻿@using WeChip.Model.ViewModels
+@model LinkOfferClientViewModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    #region cor da badge de acordo com o tipo de status
+    string badgeColor = string.Empty;
+    switch (Model.StatusCode)
+    {
+        case "0001":
+            badgeColor = $"<span class='badge badge-primary h-4'>{Model.Status}</span>";
+            break;
+        case "0007":
+            badgeColor = $"<span class='badge badge-danger h-4'>{Model.Status}</span>";
+            break;
+        case "0009":
+            badgeColor = $"<span class='badge badge-success h-4'>{Model.Status}</span>";
+            break;
+        case "0015":
+            badgeColor = $"<span class='badge badge-warning h-4'>{Model.Status}</span>";
+            break;
+        case "0019":
+            badgeColor = $"<span class='badge badge-info h-4'>{Model.Status}</span>";
+            break;
+        case "0021":
+            badgeColor = $"<span class='badge badge-secondary h-4'>{Model.Status}</span>";
+            break;
+    }
+    #endregion
+}
+<div class="container">
+    <form asp-action="LinkOfferClient" asp-controller="Client" method="post">
+        <div class="card">
+            <div class="card-header">
+                Dados do Cliente
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col text-center">
+                        Status: @Html.Raw(badgeColor)
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col">
+                        <label>Nome</label>
+                        @Html.TextBoxFor(m => m.Client.Name, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Client.Name, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-3">
+                        <label> CPF </label>
+                        @Html.TextBoxFor(m => m.Client.CPF, new { @class = "form-control", @maxlength = "14", @id = "cpfInput", @placeholder = "000.000.000-00", @oninput = "cpfChange(this.value)" })
+                        @Html.ValidationMessageFor(m => m.Client.CPF, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col">
+
+                        <label> Telefone </label>
+                        @Html.TextBoxFor(m => m.Client.Phone, new { @class = "form-control", @id = "phone", @name = "phone", @onkeypress = "mask(this, mphone);", @onblur = "mask(this, mphone);" })
+                        @Html.ValidationMessageFor(m => m.Client.Phone, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-3">
+                        <label> Crédito </label>
+                        @Html.TextBoxFor(m => m.Client.Credit, new { @class = "form-control", @id = "currency" })
+                        @Html.ValidationMessageFor(m => m.Client.Credit, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+       <div class="card">
+           <div class="card-header">
+               Endereço de Entrega
+           </div>
+           <div class="card-body">
+               <div class="row">
+                   <div class="col">
+                       AAAA
+                   </div>
+               </div>
+           </div>
+       </div>
+
+        <hr />
+        <div class="row">
+            <button type="submit" class="btn btn-primary btn-block"> Registrar Cliente </button>
+        </div>
+
+    </form>
+</div>

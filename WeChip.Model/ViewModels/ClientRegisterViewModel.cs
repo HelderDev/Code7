@@ -12,7 +12,7 @@ namespace WeChip.Model.ViewModels
         [CPFValidationHelper(ErrorMessage = "CPF inválido")]
         public string CPF { get; set; }
         [DataType(DataType.Currency)]
-        public decimal Credit { get; set; } = 0;
+        public string Credit { get; set; } = "0";
         [Required(ErrorMessage = "Telefone obrigatório")]
         public string Phone { get; set; }
     }

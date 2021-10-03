@@ -12,5 +12,6 @@ namespace WeChip.Domain.Models
         public string Phone { get; set; }
         public StatusModel Status { get; set; }
         public DeliveryClientAddressModel DeliveryClientAddress { get; set; }
+        public List<ProductModel> Products { get; set; }
     }
 }

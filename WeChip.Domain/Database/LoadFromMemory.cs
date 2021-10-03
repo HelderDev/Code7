@@ -18,6 +18,7 @@ namespace WeChip.Domain.Database
         public static IEnumerable<ClientModel> LoadClient() {
             return ClientList;
         }
+
     }
 }
 
