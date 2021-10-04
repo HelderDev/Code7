@@ -32,7 +32,7 @@ namespace WeChip.Helpers
                 },
                 Status = $"{client.Status.StatusCode.ToString().PadLeft(4, '0')} - {client.Status.Description}",
                 StatusCode = client.Status.StatusCode.ToString().PadLeft(4, '0'),
-                Products = client.Products.ToList().ToProductList()
+                Products = client.Products != null ? client.Products.ToList().ToProductList() : new List<ProductViewModel>()
             };
             if (client.DeliveryClientAddress != null)
             {

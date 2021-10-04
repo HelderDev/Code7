@@ -2246,21 +2246,6 @@
           "bin/placeholder/WeChip.DomainModel.dll": {}
         }
       },
-      "WeChip.Model/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "dependencies": {
-          "AspNetWebPages.Core": "2.0.20710",
-          "Microsoft.AspNetCore.Mvc.Core": "2.2.5",
-          "WeChip.Data": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/WeChip.Model.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/WeChip.Model.dll": {}
-        }
-      },
       "WeChip.Repository/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
@@ -2272,6 +2257,21 @@
         },
         "runtime": {
           "bin/placeholder/WeChip.Repository.dll": {}
+        }
+      },
+      "WeChip.ViewModel/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "AspNetWebPages.Core": "2.0.20710",
+          "Microsoft.AspNetCore.Mvc.Core": "2.2.5",
+          "WeChip.Data": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/WeChip.ViewModel.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/WeChip.ViewModel.dll": {}
         }
       }
     }
@@ -7126,22 +7126,22 @@
       "path": "../WeChip.DomainModel/WeChip.DomainModel.csproj",
       "msbuildProject": "../WeChip.DomainModel/WeChip.DomainModel.csproj"
     },
-    "WeChip.Model/1.0.0": {
-      "type": "project",
-      "path": "../WeChip.Model/WeChip.Model.csproj",
-      "msbuildProject": "../WeChip.Model/WeChip.Model.csproj"
-    },
     "WeChip.Repository/1.0.0": {
       "type": "project",
       "path": "../WeChip.Repository/WeChip.Repository.csproj",
       "msbuildProject": "../WeChip.Repository/WeChip.Repository.csproj"
+    },
+    "WeChip.ViewModel/1.0.0": {
+      "type": "project",
+      "path": "../WeChip.ViewModel/WeChip.ViewModel.csproj",
+      "msbuildProject": "../WeChip.ViewModel/WeChip.ViewModel.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.5",
-      "WeChip.Model >= 1.0.0",
-      "WeChip.Repository >= 1.0.0"
+      "WeChip.Repository >= 1.0.0",
+      "WeChip.ViewModel >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -7182,11 +7182,11 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\hcavalcantea\\Documents\\PRepo\\Code7\\WeChip.Model\\WeChip.Model.csproj": {
-              "projectPath": "C:\\Users\\hcavalcantea\\Documents\\PRepo\\Code7\\WeChip.Model\\WeChip.Model.csproj"
-            },
             "C:\\Users\\hcavalcantea\\Documents\\PRepo\\Code7\\WeChip.Repository\\WeChip.Repository.csproj": {
               "projectPath": "C:\\Users\\hcavalcantea\\Documents\\PRepo\\Code7\\WeChip.Repository\\WeChip.Repository.csproj"
+            },
+            "C:\\Users\\hcavalcantea\\Documents\\PRepo\\Code7\\WeChip.ViewModel\\WeChip.ViewModel.csproj": {
+              "projectPath": "C:\\Users\\hcavalcantea\\Documents\\PRepo\\Code7\\WeChip.ViewModel\\WeChip.ViewModel.csproj"
             }
           }
         }

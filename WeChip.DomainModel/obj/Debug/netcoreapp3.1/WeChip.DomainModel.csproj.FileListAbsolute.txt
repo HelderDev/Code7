@@ -6,3 +6,4 @@ C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.DomainModel\obj\Debug\netcore
 C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.DomainModel\obj\Debug\netcoreapp3.1\WeChip.DomainModel.csproj.CoreCompileInputs.cache
 C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.DomainModel\obj\Debug\netcoreapp3.1\WeChip.DomainModel.dll
 C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.DomainModel\obj\Debug\netcoreapp3.1\WeChip.DomainModel.pdb
+C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.DomainModel\obj\Debug\netcoreapp3.1\WeChip.DomainModel.csproj.AssemblyReference.cache

@@ -9,8 +9,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WeChip.Model\WeChip.Model.csproj" />
     <ProjectReference Include="..\WeChip.Repository\WeChip.Repository.csproj" />
+    <ProjectReference Include="..\WeChip.ViewModel\WeChip.ViewModel.csproj" />
   </ItemGroup>
 
 </Project>

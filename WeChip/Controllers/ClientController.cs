@@ -74,9 +74,9 @@ namespace WeChip.Controllers
 
             var selectedProducts = _productService.GetAllSelected(productCodes);
             decimal productsPrice = selectedProducts.Sum(p => p.Price);
-            bool hasHardware = selectedProducts
-                                .Select(s => s.Type == TypeEnum.HARDWARE)
-                                .FirstOrDefault();
+            //bool hasHardware = selectedProducts
+            //                    .Select(s => s.Type == TypeEnum.HARDWARE)
+            //                    .FirstOrDefault();
 
             #region Regras de Venda
             //if (selectedProducts == null || !selectedProducts.Any())

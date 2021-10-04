@@ -217,8 +217,6 @@ C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip\bin\Debug\netcoreapp3.1\ru\Mi
 C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip\bin\Debug\netcoreapp3.1\WeChip.Model.dll
-C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip\bin\Debug\netcoreapp3.1\WeChip.Model.pdb
 C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip\obj\Debug\netcoreapp3.1\WeChip.csproj.AssemblyReference.cache
 C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip\obj\Debug\netcoreapp3.1\WeChip.AssemblyInfoInputs.cache
 C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip\obj\Debug\netcoreapp3.1\WeChip.AssemblyInfo.cs
@@ -256,3 +254,5 @@ C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip\bin\Debug\netcoreapp3.1\WeChi
 C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip\bin\Debug\netcoreapp3.1\WeChip.Repository.pdb
 C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip\bin\Debug\netcoreapp3.1\WeChip.DomainModel.dll
 C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip\bin\Debug\netcoreapp3.1\WeChip.DomainModel.pdb
+C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip\bin\Debug\netcoreapp3.1\WeChip.ViewModel.dll
+C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip\bin\Debug\netcoreapp3.1\WeChip.ViewModel.pdb
