@@ -12,3 +12,17 @@ C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.ViewModel\obj\Debug\netcoreap
 C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.ViewModel\obj\Debug\netcoreapp3.1\WeChip.ViewModel.csproj.CopyComplete
 C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.ViewModel\obj\Debug\netcoreapp3.1\WeChip.ViewModel.dll
 C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.ViewModel\obj\Debug\netcoreapp3.1\WeChip.ViewModel.pdb
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.ViewModel\bin\Debug\netcoreapp3.1\WeChip.ViewModel.deps.json
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.ViewModel\bin\Debug\netcoreapp3.1\WeChip.ViewModel.dll
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.ViewModel\bin\Debug\netcoreapp3.1\WeChip.ViewModel.pdb
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.ViewModel\bin\Debug\netcoreapp3.1\WeChip.Data.dll
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.ViewModel\bin\Debug\netcoreapp3.1\WeChip.DomainModel.dll
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.ViewModel\bin\Debug\netcoreapp3.1\WeChip.Data.pdb
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.ViewModel\bin\Debug\netcoreapp3.1\WeChip.DomainModel.pdb
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.ViewModel\obj\Debug\netcoreapp3.1\WeChip.ViewModel.csprojAssemblyReference.cache
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.ViewModel\obj\Debug\netcoreapp3.1\WeChip.ViewModel.AssemblyInfoInputs.cache
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.ViewModel\obj\Debug\netcoreapp3.1\WeChip.ViewModel.AssemblyInfo.cs
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.ViewModel\obj\Debug\netcoreapp3.1\WeChip.ViewModel.csproj.CoreCompileInputs.cache
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.ViewModel\obj\Debug\netcoreapp3.1\WeChip.ViewModel.csproj.CopyComplete
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.ViewModel\obj\Debug\netcoreapp3.1\WeChip.ViewModel.dll
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.ViewModel\obj\Debug\netcoreapp3.1\WeChip.ViewModel.pdb

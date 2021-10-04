@@ -16,28 +16,49 @@ namespace WeChip.DomainModel.Models
         public StatusModel Status { get; set; }
         public DeliveryClientAddressModel DeliveryClientAddress { get; set; }
         public IEnumerable<ProductModel> Products { get; set; }
+        public string ErrorMessage { get; private set; }
 
+     
         public bool CanBuy()
         {
-            return IsProductSelected() 
-                && HasCreditEnough() 
+            return IsProductSelected()
+                && HasCreditEnough()
                 && IsHardwareSelectedWithAddress();
         }
 
         private bool IsProductSelected()
         {
-            return Products != null && Products.Any();
+            if (Products != null && Products.Any())
+                return true;
+            else
+            {
+                ErrorMessage = "Selecione ao menos 1 (um) produto.";
+                return false;
+            }
         }
         private bool HasCreditEnough()
         {
-            return Credit >= Products.Sum(p => p.Price);
+            if (Credit >= Products.Sum(p => p.Price))
+                return true;
+            else
+            {
+                ErrorMessage = $"{Name} não possui créditos suficientes.";
+                return false;
+            }
         }
         private bool IsHardwareSelectedWithAddress()
         {
-            return Products.Select(s => s.Type == TypeEnum.HARDWARE)
-                                .FirstOrDefault() 
-                                && DeliveryClientAddress != null 
-                                && !DeliveryClientAddress.IsAnyNullOrEmpty();
+            if (Products.Select(s => s.Type == TypeEnum.HARDWARE)
+                                .FirstOrDefault()
+                                && DeliveryClientAddress != null
+                                && !DeliveryClientAddress.IsAnyNullOrEmpty())
+                return true;
+            else
+            {
+                ErrorMessage = $"Ao selecionar itens do tipo {TypeEnum.HARDWARE} é necessário preencher todos os campos de endereço.";
+                return false;
+            }
+             
         }
 
     }

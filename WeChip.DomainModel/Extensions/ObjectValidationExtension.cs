@@ -17,7 +17,7 @@ namespace WeChip.DomainModel.Extensions
             foreach (PropertyInfo pi in myObject.GetType().GetProperties())
             {
                 object value = pi.GetValue(myObject);
-                if (value == null || (string)value == string.Empty)
+                if (value == null || value.Equals(0) || value.Equals(string.Empty))
                     return true;
             }
             return false;

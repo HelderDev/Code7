@@ -79,7 +79,7 @@ namespace WeChip.Helpers
                 City = address.City,
                 Complement = address.Complement,
                 Neighbourhood = address.Neighbourhood,
-                NumberAddress = byte.Parse(address.NumberAddress),
+                NumberAddress = int.Parse(address.NumberAddress),
                 Street = address.Street
             };
         }

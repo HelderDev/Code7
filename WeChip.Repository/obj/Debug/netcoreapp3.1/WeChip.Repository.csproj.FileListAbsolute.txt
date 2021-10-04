@@ -24,3 +24,17 @@ C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.Repository\obj\Debug\netcorea
 C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.Repository\obj\Debug\netcoreapp3.1\WeChip.Repository.pdb
 C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.Repository\bin\Debug\netcoreapp3.1\WeChip.DomainModel.dll
 C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.Repository\bin\Debug\netcoreapp3.1\WeChip.DomainModel.pdb
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.Repository\bin\Debug\netcoreapp3.1\WeChip.Repository.deps.json
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.Repository\bin\Debug\netcoreapp3.1\WeChip.Repository.dll
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.Repository\bin\Debug\netcoreapp3.1\WeChip.Repository.pdb
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.Repository\bin\Debug\netcoreapp3.1\WeChip.Data.dll
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.Repository\bin\Debug\netcoreapp3.1\WeChip.DomainModel.dll
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.Repository\bin\Debug\netcoreapp3.1\WeChip.Data.pdb
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.Repository\bin\Debug\netcoreapp3.1\WeChip.DomainModel.pdb
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.Repository\obj\Debug\netcoreapp3.1\WeChip.Repository.csprojAssemblyReference.cache
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.Repository\obj\Debug\netcoreapp3.1\WeChip.Repository.AssemblyInfoInputs.cache
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.Repository\obj\Debug\netcoreapp3.1\WeChip.Repository.AssemblyInfo.cs
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.Repository\obj\Debug\netcoreapp3.1\WeChip.Repository.csproj.CoreCompileInputs.cache
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.Repository\obj\Debug\netcoreapp3.1\WeChip.Repository.csproj.CopyComplete
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.Repository\obj\Debug\netcoreapp3.1\WeChip.Repository.dll
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.Repository\obj\Debug\netcoreapp3.1\WeChip.Repository.pdb

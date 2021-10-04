@@ -89,12 +89,6 @@ C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip\bin\Debug\netcoreapp3.1\r
 C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip\bin\Debug\netcoreapp3.1\WeChip.Domain.dll
-C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip\bin\Debug\netcoreapp3.1\WeChip.Model.dll
-C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip\bin\Debug\netcoreapp3.1\WeChip.Services.dll
-C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip\bin\Debug\netcoreapp3.1\WeChip.Model.pdb
-C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip\bin\Debug\netcoreapp3.1\WeChip.Services.pdb
-C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip\bin\Debug\netcoreapp3.1\WeChip.Domain.pdb
 C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip\obj\Debug\netcoreapp3.1\WeChip.csprojAssemblyReference.cache
 C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip\obj\Debug\netcoreapp3.1\WeChip.AssemblyInfoInputs.cache
 C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip\obj\Debug\netcoreapp3.1\WeChip.AssemblyInfo.cs
@@ -256,3 +250,11 @@ C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip\bin\Debug\netcoreapp3.1\WeChi
 C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip\bin\Debug\netcoreapp3.1\WeChip.DomainModel.pdb
 C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip\bin\Debug\netcoreapp3.1\WeChip.ViewModel.dll
 C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip\bin\Debug\netcoreapp3.1\WeChip.ViewModel.pdb
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip\bin\Debug\netcoreapp3.1\WeChip.Data.dll
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip\bin\Debug\netcoreapp3.1\WeChip.DomainModel.dll
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip\bin\Debug\netcoreapp3.1\WeChip.Repository.dll
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip\bin\Debug\netcoreapp3.1\WeChip.ViewModel.dll
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip\bin\Debug\netcoreapp3.1\WeChip.Repository.pdb
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip\bin\Debug\netcoreapp3.1\WeChip.ViewModel.pdb
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip\bin\Debug\netcoreapp3.1\WeChip.Data.pdb
+C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip\bin\Debug\netcoreapp3.1\WeChip.DomainModel.pdb

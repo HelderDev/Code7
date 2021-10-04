@@ -1,4 +1,5 @@
 ﻿@using WeChip.Model.ViewModels
+
 @model LinkOfferClientViewModel
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -105,7 +106,7 @@
                     </div>
                     <div class="col-2">
                         <label> Número </label>
-                        @Html.TextBoxFor(m => m.Address.NumberAddress, new { @class = "form-control" })
+                        @Html.TextBoxFor(m => m.Address.NumberAddress, new { @class = "form-control", maxlength = "9" })
                         @Html.ValidationMessageFor(m => m.Address.NumberAddress, "", new { @class = "text-danger" })
                     </div>
                 </div>
