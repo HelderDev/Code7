@@ -8,6 +8,8 @@ namespace WeChip.Services.Interface
     public interface IProductService
     {
         IEnumerable<ProductModel> GetAll();
-        ProductModel Get(byte productCode);
+        IEnumerable<ProductModel> GetAllSelected(int[] productCodes);
+
+        ProductModel Get(int productCode);
     }
 }

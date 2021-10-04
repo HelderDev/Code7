@@ -11,11 +11,13 @@ namespace WeChip.Controllers
     {
         private readonly IClientService _clientService;
         private readonly IStatusService _statusService;
+        private readonly IProductService _productService;
 
         public ClientController()
         {
             _clientService = new ClientService();
             _statusService = new StatusService();
+            _productService = new ProductService();
         }
         public IActionResult RegisterClient()
         {
@@ -46,8 +48,78 @@ namespace WeChip.Controllers
         }
         public IActionResult LinkOfferClient(string clientCPF)
         {
-            var client = _clientService.Get(clientCPF);
-            return View(client.ToLinkOfferView());
+            var products = _productService.GetAll();
+            var linkOfferClient = _clientService.Get(clientCPF).ToLinkOfferView();
+            if (products != null && products.Any())
+                linkOfferClient.Products = products.ToList().ToProductList();
+
+            return View(linkOfferClient);
         }
-     }
+        [HttpPost]
+        public IActionResult LinkOfferClient(LinkOfferClientViewModel linkOfferClient)
+        {
+            linkOfferClient.StatusCode = "0001";
+            if (!ModelState.IsValid)
+            {
+                return View(linkOfferClient);
+            }
+
+            var productCodes = linkOfferClient.Products
+                                                .Where(p => p.IsSelected)
+                                                .Select(p => int.Parse(p.ProductCode)).ToArray();
+
+            var selectedProducts = _productService.GetAllSelected(productCodes);
+            decimal productsPrice = selectedProducts.Sum(p => p.Price);
+            bool hasHardware = selectedProducts
+                                .Select(s => s.Type == Domain.Enums.TypeEnum.HARDWARE)
+                                .FirstOrDefault();
+
+            #region Regras de Venda
+            if (selectedProducts == null || !selectedProducts.Any())
+            {
+                ViewBag.ErrorMessage = "É preciso selecionar ao menos 1 produto!";
+                return View(linkOfferClient);
+            }
+
+            if (productsPrice > decimal.Parse(linkOfferClient.Client.Credit))
+            {
+                ViewBag.ErrorMessage = "Cliente não possui Crédito suficiente!";
+                return View(linkOfferClient);
+            }
+
+            if (hasHardware && (string.IsNullOrEmpty(linkOfferClient.Address.CEP)
+                || string.IsNullOrEmpty(linkOfferClient.Address.City)
+                || string.IsNullOrEmpty(linkOfferClient.Address.Complement)
+                || string.IsNullOrEmpty(linkOfferClient.Address.Neighbourhood)
+                || string.IsNullOrEmpty(linkOfferClient.Address.NumberAddress)
+                || string.IsNullOrEmpty(linkOfferClient.Address.Street)
+                || string.IsNullOrEmpty(linkOfferClient.Address.State)
+                ))
+            {
+                ViewBag.ErrorMessage = "Produto HARDWARE Selecionado! Obrigatório o preenchimento dos dados de endereço.";
+                return View(linkOfferClient);
+            }
+            #endregion
+
+            var client = _clientService.Get(linkOfferClient.Client.CPF);
+
+            if ((!string.IsNullOrEmpty(linkOfferClient.Address.CEP)
+                && !string.IsNullOrEmpty(linkOfferClient.Address.City)
+                && !string.IsNullOrEmpty(linkOfferClient.Address.Complement)
+                && !string.IsNullOrEmpty(linkOfferClient.Address.Neighbourhood)
+                && !string.IsNullOrEmpty(linkOfferClient.Address.NumberAddress)
+                && !string.IsNullOrEmpty(linkOfferClient.Address.Street)
+                && !string.IsNullOrEmpty(linkOfferClient.Address.State)
+                ))
+            {
+                client.DeliveryClientAddress = linkOfferClient.Address.ToAddress();
+            }
+            client.Products = selectedProducts.ToList();
+
+            client.Status = _statusService.Get(0009);
+            client.Credit -= productsPrice;
+            _clientService.Update(client);
+            return View(linkOfferClient);
+        }
+    }
 }

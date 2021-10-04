@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace WeChip.Domain.Models
+namespace WeChip.Model.ViewModels
 {
-    public class DeliveryClientAddressModel
+    public class DeliveryClientAddressViewModel
     {
         public string CEP { get; set; }
         public string Street { get; set; }
-        public byte NumberAddress { get; set; }
+        public string NumberAddress { get; set; }
         public string Complement { get; set; }
         public string Neighbourhood { get; set; }
         public string City { get; set; }

@@ -30,6 +30,19 @@
     #endregion
 }
 <div class="container">
+    @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+    {
+        <div class="row">
+            <div class="col">
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>@ViewBag.ErrorMessage</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    }
     <form asp-action="LinkOfferClient" asp-controller="Client" method="post">
         <div class="card">
             <div class="card-header">
@@ -55,39 +68,160 @@
                     </div>
                 </div>
                 <div class="row">
-
                     <div class="col">
-
                         <label> Telefone </label>
                         @Html.TextBoxFor(m => m.Client.Phone, new { @class = "form-control", @id = "phone", @name = "phone", @onkeypress = "mask(this, mphone);", @onblur = "mask(this, mphone);" })
                         @Html.ValidationMessageFor(m => m.Client.Phone, "", new { @class = "text-danger" })
                     </div>
                     <div class="col-3">
                         <label> Crédito </label>
-                        @Html.TextBoxFor(m => m.Client.Credit, new { @class = "form-control", @id = "currency" })
+                        @Html.TextBoxFor(m => m.Client.Credit, new { @class = "form-control", @id = "currency", @readOnly = "readonly" })
                         @Html.ValidationMessageFor(m => m.Client.Credit, "", new { @class = "text-danger" })
                     </div>
                 </div>
             </div>
         </div>
         <br />
-       <div class="card">
-           <div class="card-header">
-               Endereço de Entrega
-           </div>
-           <div class="card-body">
-               <div class="row">
-                   <div class="col">
-                       AAAA
-                   </div>
-               </div>
-           </div>
-       </div>
+        <div class="card">
+            <div class="card-header">
+                Endereço de Entrega
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <label> CEP </label>
+                        @Html.TextBoxFor(m => m.Address.CEP, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Address.CEP, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col">
+                        <label> Rua </label>
+                        @Html.TextBoxFor(m => m.Address.Street, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Address.Street, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col">
+                        <label> Complemento </label>
+                        @Html.TextBoxFor(m => m.Address.Complement, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Address.Complement, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-2">
+                        <label> Número </label>
+                        @Html.TextBoxFor(m => m.Address.NumberAddress, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Address.NumberAddress, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label> Bairro </label>
+                        @Html.TextBoxFor(m => m.Address.Neighbourhood, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Address.Neighbourhood, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col">
+                        <label> Cidade </label>
+                        @Html.TextBoxFor(m => m.Address.City, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Address.City, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-2">
+                        <label> Estado </label>
+                        @Html.TextBoxFor(m => m.Address.State, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Address.State, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="card">
+            <div class="card-header">
+                Oferta dos Produtos
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <div class="table-responsive">
+                            <table class="table table-hover table-bordered">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>
+                                            Descrição
+                                        </th>
+                                        <th>
+                                            Preço
+                                        </th>
+                                        <th>
+                                            Tipo
+                                        </th>
+                                        <th>
+                                            Código do Produto
+                                        </th>
+                                        <th>
+                                            Ofertar
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Model.Products == null || !Model.Products.Any())
+                                    {
+                                        <tr>
+                                            <td colspan="3" class="text-center">
+                                                Não há produtos para exibir.
+                                            </td>
+                                        </tr>
+                                    }
+                                    else
+                                    {
+                                        @for (int i = 0; i < Model.Products.Count(); i++)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @Html.TextBoxFor(c => c.Products[i].Description, new { @readOnly = "readonly" })
+                                                </td>
+                                                <td>
+                                                    @Html.TextBoxFor(c => c.Products[i].Price, new { @readOnly = "readonly" })
+                                                </td>
+                                                <td>
+                                                    @Html.TextBoxFor(c => c.Products[i].Type, new { @readOnly = "readonly" })
+                                                </td>
+                                                <td>
+                                                    @Html.TextBoxFor(c => c.Products[i].ProductCode, new { @readOnly = "readonly" })
+                                                </td>
+                                                <td class="text-center">
+                                                    @Html.CheckBoxFor(c => c.Products[i].IsSelected)
+                                                </td>
+                                            </tr>
+                                        }
 
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
         <hr />
         <div class="row">
-            <button type="submit" class="btn btn-primary btn-block"> Registrar Cliente </button>
+            <button type="submit" class="btn btn-success btn-block"> Registrar Oferta </button>
         </div>
 
     </form>
 </div>
+<script>
+    $(document).ready(function () {
+        $('.table').DataTable({
+            "language": {
+                "lengthMenu": "Exibindo _MENU_ registros por página",
+                "zeroRecords": "Nenhum registro encontrado",
+                "info": "Exibindo a página _PAGE_ de _PAGES_",
+                "infoEmpty": "Sem registros disponíveis",
+                "infoFiltered": "(Filtrado de _MAX_ registros totais)",
+                "sSearch": "Procurar: ",
+                "paginate": {
+                    "previous": "Página anterior ",
+                    "next": " Próxima página"
+                }
+            }
+        });
+    });
+</script>

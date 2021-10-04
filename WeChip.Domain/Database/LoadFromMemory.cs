@@ -12,13 +12,16 @@ namespace WeChip.Domain.Database
         {
             if (ClientList == null)
                 ClientList = new List<ClientModel>();
-
+             
             ClientList.Add(client);
         }
         public static IEnumerable<ClientModel> LoadClient() {
             return ClientList;
         }
-
+        public static void RemoveClient(ClientModel client)
+        {
+            ClientList.Remove(client);
+        }
     }
 }
 
