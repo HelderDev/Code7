@@ -10,3 +10,15 @@ C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.Model\bin\Debug\netcoreap
 C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.Model\bin\Debug\netcoreapp3.1\WeChip.Domain.pdb
 C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.Model\obj\Debug\netcoreapp3.1\WeChip.Model.csprojAssemblyReference.cache
 C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.Model\obj\Debug\netcoreapp3.1\WeChip.Model.csproj.CopyComplete
+C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.Model\bin\Debug\netcoreapp3.1\WeChip.Model.deps.json
+C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.Model\bin\Debug\netcoreapp3.1\WeChip.Model.dll
+C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.Model\bin\Debug\netcoreapp3.1\WeChip.Model.pdb
+C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.Model\obj\Debug\netcoreapp3.1\WeChip.Model.csproj.AssemblyReference.cache
+C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.Model\obj\Debug\netcoreapp3.1\WeChip.Model.AssemblyInfoInputs.cache
+C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.Model\obj\Debug\netcoreapp3.1\WeChip.Model.AssemblyInfo.cs
+C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.Model\obj\Debug\netcoreapp3.1\WeChip.Model.csproj.CoreCompileInputs.cache
+C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.Model\obj\Debug\netcoreapp3.1\WeChip.Model.csproj.CopyComplete
+C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.Model\obj\Debug\netcoreapp3.1\WeChip.Model.dll
+C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.Model\obj\Debug\netcoreapp3.1\WeChip.Model.pdb
+C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.Model\bin\Debug\netcoreapp3.1\WeChip.Data.dll
+C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.Model\bin\Debug\netcoreapp3.1\WeChip.Data.pdb

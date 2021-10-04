@@ -33,7 +33,7 @@
         "dependencies": {
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.5",
           "WeChip.Model": "1.0.0",
-          "WeChip.Services": "1.0.0",
+          "WeChip.Repository": "1.0.0",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions.Reference": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "3.1.0.0",
@@ -1800,19 +1800,19 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
-      "WeChip.Domain/1.0.0": {
+      "WeChip.Data/1.0.0": {
         "runtime": {
-          "WeChip.Domain.dll": {}
+          "WeChip.Data.dll": {}
         },
         "compile": {
-          "WeChip.Domain.dll": {}
+          "WeChip.Data.dll": {}
         }
       },
       "WeChip.Model/1.0.0": {
         "dependencies": {
           "AspNetWebPages.Core": "2.0.20710",
           "Microsoft.AspNetCore.Mvc.Core": "2.2.5",
-          "WeChip.Domain": "1.0.0"
+          "WeChip.Data": "1.0.0"
         },
         "runtime": {
           "WeChip.Model.dll": {}
@@ -1821,15 +1821,15 @@
           "WeChip.Model.dll": {}
         }
       },
-      "WeChip.Services/1.0.0": {
+      "WeChip.Repository/1.0.0": {
         "dependencies": {
-          "WeChip.Domain": "1.0.0"
+          "WeChip.Data": "1.0.0"
         },
         "runtime": {
-          "WeChip.Services.dll": {}
+          "WeChip.Repository.dll": {}
         },
         "compile": {
-          "WeChip.Services.dll": {}
+          "WeChip.Repository.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/3.1.0.0": {
@@ -4505,7 +4505,7 @@
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
     },
-    "WeChip.Domain/1.0.0": {
+    "WeChip.Data/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -4515,7 +4515,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "WeChip.Services/1.0.0": {
+    "WeChip.Repository/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

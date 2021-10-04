@@ -17,7 +17,11 @@ namespace WeChip.Controllers
         {
             _logger = logger;
         }
-
+        /// <summary>
+        /// Método responsável pelo redirecionamento para a tela principal do Site
+        /// </summary>
+        /// <param name="viewBagMessage">Mensagem recebida da ClientController quando um novo cliente é cadastrado</param>
+        /// <returns></returns>
         public IActionResult Index(string viewBagMessage = null)
         {
             ViewBag.FlowMessage = viewBagMessage;

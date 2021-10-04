@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WeChip.Domain\WeChip.Domain.csproj" />
+    <ProjectReference Include="..\WeChip.Domain\WeChip.Data.csproj" />
   </ItemGroup>
 
 </Project>

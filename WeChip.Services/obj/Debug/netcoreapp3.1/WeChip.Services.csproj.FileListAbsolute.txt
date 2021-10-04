@@ -10,3 +10,15 @@ C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.Services\obj\Debug\netcor
 C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.Services\obj\Debug\netcoreapp3.1\WeChip.Services.csproj.CopyComplete
 C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.Services\obj\Debug\netcoreapp3.1\WeChip.Services.dll
 C:\Users\Helder\source\repos\ProvaPratica_Code7\WeChip.Services\obj\Debug\netcoreapp3.1\WeChip.Services.pdb
+C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.Services\bin\Debug\netcoreapp3.1\WeChip.Services.deps.json
+C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.Services\bin\Debug\netcoreapp3.1\WeChip.Services.dll
+C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.Services\bin\Debug\netcoreapp3.1\WeChip.Services.pdb
+C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.Services\obj\Debug\netcoreapp3.1\WeChip.Services.csproj.AssemblyReference.cache
+C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.Services\obj\Debug\netcoreapp3.1\WeChip.Services.AssemblyInfoInputs.cache
+C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.Services\obj\Debug\netcoreapp3.1\WeChip.Services.AssemblyInfo.cs
+C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.Services\obj\Debug\netcoreapp3.1\WeChip.Services.csproj.CoreCompileInputs.cache
+C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.Services\obj\Debug\netcoreapp3.1\WeChip.Services.csproj.CopyComplete
+C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.Services\obj\Debug\netcoreapp3.1\WeChip.Services.dll
+C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.Services\obj\Debug\netcoreapp3.1\WeChip.Services.pdb
+C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.Services\bin\Debug\netcoreapp3.1\WeChip.Data.dll
+C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.Services\bin\Debug\netcoreapp3.1\WeChip.Data.pdb

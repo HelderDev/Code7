@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\WeChip.Model\WeChip.Model.csproj" />
-    <ProjectReference Include="..\WeChip.Services\WeChip.Services.csproj" />
+    <ProjectReference Include="..\WeChip.Services\WeChip.Repository.csproj" />
   </ItemGroup>
 
 </Project>

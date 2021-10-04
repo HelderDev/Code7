@@ -4,27 +4,27 @@ using System.Linq;
 using System.Text;
 using WeChip.Domain.Database;
 using WeChip.Domain.Models;
-using WeChip.Services.Interface;
+using WeChip.Repository.Interface;
 
-namespace WeChip.Services.Concrete
+namespace WeChip.Repository.Concrete
 {
-    public class ClientService : IClientService
+    public class ClientRepository : IClientRepository
     {
-        ClientModel IClientService.Get(string CPF)
+        ClientModel IClientRepository.Get(string CPF)
         {
             return Get(CPF);
         }
 
-        IEnumerable<ClientModel> IClientService.GetAll()
+        IEnumerable<ClientModel> IClientRepository.GetAll()
         {
             return LoadFromMemory.LoadClient();
         }
 
-        void IClientService.Insert(ClientModel client)
+        void IClientRepository.Insert(ClientModel client)
         {
             Insert(client);
         }
-        void IClientService.Update(ClientModel client)
+        void IClientRepository.Update(ClientModel client)
         {
             var cli = Get(client.CPF);
             Delete(cli);

@@ -1068,14 +1068,14 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
-      "WeChip.Domain/1.0.0": {
+      "WeChip.Data/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "compile": {
-          "bin/placeholder/WeChip.Domain.dll": {}
+          "bin/placeholder/WeChip.Data.dll": {}
         },
         "runtime": {
-          "bin/placeholder/WeChip.Domain.dll": {}
+          "bin/placeholder/WeChip.Data.dll": {}
         }
       }
     }
@@ -3973,48 +3973,59 @@
         "system.xml.xdocument.nuspec"
       ]
     },
-    "WeChip.Domain/1.0.0": {
+    "WeChip.Data/1.0.0": {
       "type": "project",
-      "path": "../WeChip.Domain/WeChip.Domain.csproj",
-      "msbuildProject": "../WeChip.Domain/WeChip.Domain.csproj"
+      "path": "../WeChip.Domain/WeChip.Data.csproj",
+      "msbuildProject": "../WeChip.Domain/WeChip.Data.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "AspNetWebPages.Core >= 2.0.20710",
       "Microsoft.AspNetCore.Mvc.Core >= 2.2.5",
-      "WeChip.Domain >= 1.0.0"
+      "WeChip.Data >= 1.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Helder\\.nuget\\packages\\": {}
+    "C:\\Users\\hcavalcantea\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Helder\\source\\repos\\ProvaPratica_Code7\\WeChip.Model\\WeChip.Model.csproj",
+      "projectUniqueName": "C:\\Users\\hcavalcantea\\Documents\\PRepo\\Code7\\WeChip.Model\\WeChip.Model.csproj",
       "projectName": "WeChip.Model",
-      "projectPath": "C:\\Users\\Helder\\source\\repos\\ProvaPratica_Code7\\WeChip.Model\\WeChip.Model.csproj",
-      "packagesPath": "C:\\Users\\Helder\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Helder\\source\\repos\\ProvaPratica_Code7\\WeChip.Model\\obj\\",
+      "projectPath": "C:\\Users\\hcavalcantea\\Documents\\PRepo\\Code7\\WeChip.Model\\WeChip.Model.csproj",
+      "packagesPath": "C:\\Users\\hcavalcantea\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\hcavalcantea\\Documents\\PRepo\\Code7\\WeChip.Model\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Helder\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\hcavalcantea\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
+        "C:\\EDP - Libs": {},
+        "C:\\EDP Refactor\\Library\\EDP.Tracing\\EDP.Tracing.Telemetry.NetCore\\bin\\Release": {},
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://pkgs.dev.azure.com/EDPBR-TI/FSA_NetCore/_packaging/EDP-Core/nuget/v3/index.json": {},
+        "https://www.myget.org/F/opentelemetry/api/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\Helder\\source\\repos\\ProvaPratica_Code7\\WeChip.Domain\\WeChip.Domain.csproj": {
-              "projectPath": "C:\\Users\\Helder\\source\\repos\\ProvaPratica_Code7\\WeChip.Domain\\WeChip.Domain.csproj"
+            "C:\\Users\\hcavalcantea\\Documents\\PRepo\\Code7\\WeChip.Domain\\WeChip.Data.csproj": {
+              "projectPath": "C:\\Users\\hcavalcantea\\Documents\\PRepo\\Code7\\WeChip.Domain\\WeChip.Data.csproj"
             }
           }
         }
@@ -4053,7 +4064,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   },

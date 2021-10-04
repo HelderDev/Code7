@@ -2,22 +2,25 @@
 using System.Linq;
 using WeChip.Helpers;
 using WeChip.Model.ViewModels;
-using WeChip.Services.Concrete;
-using WeChip.Services.Interface;
+using WeChip.Repository.Concrete;
+using WeChip.Repository.Interface;
 
 namespace WeChip.Controllers
 {
     public class ClientController : Controller
     {
-        private readonly IClientService _clientService;
-        private readonly IStatusService _statusService;
-        private readonly IProductService _productService;
+        private readonly IClientRepository _clientService;
+        private readonly IStatusRepository _statusService;
+        private readonly IProductRepository _productService;
 
+        /// <summary>
+        /// Construtor responsável por iniciar todos os serviços que fazem acesso a base de dados.
+        /// </summary>
         public ClientController()
         {
-            _clientService = new ClientService();
-            _statusService = new StatusService();
-            _productService = new ProductService();
+            _clientService = new ClientRepository();
+            _statusService = new StatusRepository();
+            _productService = new ProductRepository();
         }
         public IActionResult RegisterClient()
         {
