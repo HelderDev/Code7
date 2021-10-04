@@ -7,6 +7,11 @@ namespace WeChip.Helpers
 {
     public static class MapperExtension
     {
+        /// <summary>
+        /// Converte o objeto Client da ViewModel para Client da DomainModel
+        /// </summary>
+        /// <param name="client">objeto cliente da ViewModel</param>
+        /// <returns></returns>
         public static ClientModel ToClient(this ClientRegisterViewModel client)
         {
             return new ClientModel()
@@ -18,6 +23,12 @@ namespace WeChip.Helpers
                 Phone = client.Phone
             };
         }
+
+        /// <summary>
+        /// Converte o objeto Client da DomainModel para o objeto LinkOfferClient da ViewModel
+        /// </summary>
+        /// <param name="client">Objeto Client da DomainModel</param>
+        /// <returns></returns>
         public static LinkOfferClientViewModel ToLinkOfferView(this ClientModel client)
         {
             var linkOfferClient = new LinkOfferClientViewModel()
@@ -49,6 +60,12 @@ namespace WeChip.Helpers
             }
             return linkOfferClient;
         }
+
+        /// <summary>
+        /// Converte a lista do tipo Product da DomainModel para a lista do tipo Product da ViewModel
+        /// </summary>
+        /// <param name="product">Lista de produtos da DomainModel</param>
+        /// <returns></returns>
         public static List<ProductViewModel> ToProductList(this List<ProductModel> product)
         {
             if (product == null || !product.Any())
@@ -69,6 +86,12 @@ namespace WeChip.Helpers
             }
             return productViewModelList;
         }
+
+        /// <summary>
+        /// Converte o objeto DeliveryAddress da ViewModel para o objeto DeliveryAddress da DomainModel
+        /// </summary>
+        /// <param name="address">Objeto DeliveryAddress da ViewModel</param>
+        /// <returns></returns>
         public static DeliveryClientAddressModel ToAddress(this DeliveryClientAddressViewModel address)
         {
 

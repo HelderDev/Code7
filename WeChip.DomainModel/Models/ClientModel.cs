@@ -18,14 +18,26 @@ namespace WeChip.DomainModel.Models
         public IEnumerable<ProductModel> Products { get; set; }
         public string ErrorMessage { get; private set; }
 
-     
+        /// <summary>
+        /// Faz todas as seguintes validações:
+        /// > Verifica se há algum produto associado ao cliente
+        /// > Verifica se há crédito suficiente para efetuar a compra
+        /// > Verifica se o cliente que preencheu com a opção HARDWARE também preencheu o endereço
+        /// > Verifica se o cliente conseguiu aceitar a oferta
+        /// </summary>
+        /// <returns></returns>
         public bool CanBuy()
         {
             return IsProductSelected()
                 && HasCreditEnough()
-                && IsHardwareSelectedWithAddress();
+                && IsHardwareSelectedWithAddress()
+                && HasClientAccepted();
         }
 
+        /// <summary>
+        /// Verifica se há algum produto associado ao cliente
+        /// </summary>
+        /// <returns></returns>
         private bool IsProductSelected()
         {
             if (Products != null && Products.Any())
@@ -36,6 +48,11 @@ namespace WeChip.DomainModel.Models
                 return false;
             }
         }
+
+        /// <summary>
+        /// Verifica se há crédito suficiente para efetuar a compra
+        /// </summary>
+        /// <returns></returns>
         private bool HasCreditEnough()
         {
             if (Credit >= Products.Sum(p => p.Price))
@@ -46,6 +63,11 @@ namespace WeChip.DomainModel.Models
                 return false;
             }
         }
+
+        /// <summary>
+        /// Verifica se o cliente que preencheu com a opção HARDWARE também preencheu o endereço
+        /// </summary>
+        /// <returns></returns>
         private bool IsHardwareSelectedWithAddress()
         {
             if (Products.Select(s => s.Type == TypeEnum.HARDWARE)
@@ -58,8 +80,21 @@ namespace WeChip.DomainModel.Models
                 ErrorMessage = $"Ao selecionar itens do tipo {TypeEnum.HARDWARE} é necessário preencher todos os campos de endereço.";
                 return false;
             }
-             
-        }
 
+        }
+        /// <summary>
+        /// Verifica se o cliente conseguiu aceitar a oferta
+        /// </summary>
+        /// <returns></returns>
+        private bool HasClientAccepted()
+        {
+            if (Status.AccountSale)
+                return true;
+            else
+            {
+                ErrorMessage = $"Não foi possivel para o cliente {Name} aceitar a oferta \n[Motivo: {Status.Description}]";
+                return false;
+            }
+        }
     }
 }

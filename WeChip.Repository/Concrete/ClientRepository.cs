@@ -40,5 +40,10 @@ namespace WeChip.Repository.Concrete
         {
             LoadFromMemory.Insert(client);
         }
+
+        IEnumerable<ClientModel> IClientRepository.GetAllAvailable()
+        {
+            return LoadFromMemory.LoadClient().Where(s => !s.Status.TerminateClient);
+        }
     }
 }

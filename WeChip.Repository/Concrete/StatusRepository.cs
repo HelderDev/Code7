@@ -8,7 +8,7 @@ namespace WeChip.Repository.Concrete
 {
     public class StatusRepository : IStatusRepository
     {
-        StatusModel IStatusRepository.Get(byte statusCode)
+        StatusModel IStatusRepository.Get(short statusCode)
         {
             return LoadDump.LoadStatus().FirstOrDefault(s => s.StatusCode == statusCode);
         }

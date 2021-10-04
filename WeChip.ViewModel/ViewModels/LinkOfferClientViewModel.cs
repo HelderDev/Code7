@@ -9,5 +9,6 @@ namespace WeChip.Model.ViewModels
         public string StatusCode { get; set; }
         public List<ProductViewModel> Products { get; set; }
         public DeliveryClientAddressViewModel Address { get; set; }
+         
     }
 }

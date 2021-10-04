@@ -10,7 +10,7 @@ namespace WeChip.DomainModel.Models
         public string Description { get; set; }
         public bool TerminateClient { get; set; }
         public bool AccountSale { get; set; }
-        public byte StatusCode { get; set; }
+        public short StatusCode { get; set; }
     }
 
 }

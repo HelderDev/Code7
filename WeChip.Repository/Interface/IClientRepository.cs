@@ -24,6 +24,12 @@ namespace WeChip.Repository.Interface
         IEnumerable<ClientModel> GetAll();
 
         /// <summary>
+        /// Retorna todos os clientes disponíveis
+        /// </summary>
+        /// <returns></returns>
+        IEnumerable<ClientModel> GetAllAvailable();
+
+        /// <summary>
         /// Atualiza um cliente na base
         /// </summary>
         /// <param name="client">Objeto cliente</param>

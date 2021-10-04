@@ -91,7 +91,7 @@
                 <div class="row">
                     <div class="col">
                         <label> CEP </label>
-                        @Html.TextBoxFor(m => m.Address.CEP, new { @class = "form-control" })
+                        @Html.TextBoxFor(m => m.Address.CEP, new { @class = "form-control", @type = "number", @maxlength = "8" })
                         @Html.ValidationMessageFor(m => m.Address.CEP, "", new { @class = "text-danger" })
                     </div>
                     <div class="col">
@@ -106,7 +106,7 @@
                     </div>
                     <div class="col-2">
                         <label> Número </label>
-                        @Html.TextBoxFor(m => m.Address.NumberAddress, new { @class = "form-control", maxlength = "9" })
+                        @Html.TextBoxFor(m => m.Address.NumberAddress, new { @class = "form-control", maxlength = "9", @type = "number" })
                         @Html.ValidationMessageFor(m => m.Address.NumberAddress, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -201,9 +201,23 @@
                 </div>
             </div>
         </div>
+        <br />
+        <div class="card">
+            <div class="card-header">
+                Novo Status
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <label>Selecione um novo Status</label>
+                        @Html.DropDownList("StatusCode", new SelectList(ViewBag.StatusList, "StatusCode", "Description"), new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+        </div>
         <hr />
         <div class="row">
-            <button type="submit" class="btn btn-success btn-block"> Registrar Oferta </button>
+            <button type="submit" class="btn btn-success btn-block"> Registrar Resposta </button>
         </div>
 
     </form>
