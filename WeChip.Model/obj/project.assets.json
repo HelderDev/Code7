@@ -1071,11 +1071,24 @@
       "WeChip.Data/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "WeChip.DomainModel": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/WeChip.Data.dll": {}
         },
         "runtime": {
           "bin/placeholder/WeChip.Data.dll": {}
+        }
+      },
+      "WeChip.DomainModel/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/WeChip.DomainModel.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/WeChip.DomainModel.dll": {}
         }
       }
     }
@@ -3975,8 +3988,13 @@
     },
     "WeChip.Data/1.0.0": {
       "type": "project",
-      "path": "../WeChip.Domain/WeChip.Data.csproj",
-      "msbuildProject": "../WeChip.Domain/WeChip.Data.csproj"
+      "path": "../WeChip.Data/WeChip.Data.csproj",
+      "msbuildProject": "../WeChip.Data/WeChip.Data.csproj"
+    },
+    "WeChip.DomainModel/1.0.0": {
+      "type": "project",
+      "path": "../WeChip.DomainModel/WeChip.DomainModel.csproj",
+      "msbuildProject": "../WeChip.DomainModel/WeChip.DomainModel.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -4024,8 +4042,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\hcavalcantea\\Documents\\PRepo\\Code7\\WeChip.Domain\\WeChip.Data.csproj": {
-              "projectPath": "C:\\Users\\hcavalcantea\\Documents\\PRepo\\Code7\\WeChip.Domain\\WeChip.Data.csproj"
+            "C:\\Users\\hcavalcantea\\Documents\\PRepo\\Code7\\WeChip.Data\\WeChip.Data.csproj": {
+              "projectPath": "C:\\Users\\hcavalcantea\\Documents\\PRepo\\Code7\\WeChip.Data\\WeChip.Data.csproj"
             }
           }
         }

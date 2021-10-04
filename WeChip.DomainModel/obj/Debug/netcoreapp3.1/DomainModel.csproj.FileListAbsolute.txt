@@ -1,0 +1,8 @@
+C:\Users\hcavalcantea\Documents\PRepo\Code7\DomainModel\bin\Debug\netcoreapp3.1\DomainModel.deps.json
+C:\Users\hcavalcantea\Documents\PRepo\Code7\DomainModel\bin\Debug\netcoreapp3.1\DomainModel.dll
+C:\Users\hcavalcantea\Documents\PRepo\Code7\DomainModel\bin\Debug\netcoreapp3.1\DomainModel.pdb
+C:\Users\hcavalcantea\Documents\PRepo\Code7\DomainModel\obj\Debug\netcoreapp3.1\DomainModel.AssemblyInfoInputs.cache
+C:\Users\hcavalcantea\Documents\PRepo\Code7\DomainModel\obj\Debug\netcoreapp3.1\DomainModel.AssemblyInfo.cs
+C:\Users\hcavalcantea\Documents\PRepo\Code7\DomainModel\obj\Debug\netcoreapp3.1\DomainModel.csproj.CoreCompileInputs.cache
+C:\Users\hcavalcantea\Documents\PRepo\Code7\DomainModel\obj\Debug\netcoreapp3.1\DomainModel.dll
+C:\Users\hcavalcantea\Documents\PRepo\Code7\DomainModel\obj\Debug\netcoreapp3.1\DomainModel.pdb

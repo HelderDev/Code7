@@ -17,8 +17,8 @@
   "libraries": {
     "WeChip.Data/1.0.0": {
       "type": "project",
-      "path": "../WeChip.Domain/WeChip.Data.csproj",
-      "msbuildProject": "../WeChip.Domain/WeChip.Data.csproj"
+      "path": "../WeChip.Data/WeChip.Data.csproj",
+      "msbuildProject": "../WeChip.Data/WeChip.Data.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -64,8 +64,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\hcavalcantea\\Documents\\PRepo\\Code7\\WeChip.Domain\\WeChip.Data.csproj": {
-              "projectPath": "C:\\Users\\hcavalcantea\\Documents\\PRepo\\Code7\\WeChip.Domain\\WeChip.Data.csproj"
+            "C:\\Users\\hcavalcantea\\Documents\\PRepo\\Code7\\WeChip.Data\\WeChip.Data.csproj": {
+              "projectPath": "C:\\Users\\hcavalcantea\\Documents\\PRepo\\Code7\\WeChip.Data\\WeChip.Data.csproj"
             }
           }
         }

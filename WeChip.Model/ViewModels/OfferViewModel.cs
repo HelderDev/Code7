@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using WeChip.Domain.Models;
+﻿using System.Collections.Generic;
+using WeChip.DomainModel.Models;
 
 namespace WeChip.Model.ViewModels
 {

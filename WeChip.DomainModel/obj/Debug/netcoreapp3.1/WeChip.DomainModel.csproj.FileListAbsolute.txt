@@ -1,0 +1,8 @@
+C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.DomainModel\bin\Debug\netcoreapp3.1\WeChip.DomainModel.deps.json
+C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.DomainModel\bin\Debug\netcoreapp3.1\WeChip.DomainModel.dll
+C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.DomainModel\bin\Debug\netcoreapp3.1\WeChip.DomainModel.pdb
+C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.DomainModel\obj\Debug\netcoreapp3.1\WeChip.DomainModel.AssemblyInfoInputs.cache
+C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.DomainModel\obj\Debug\netcoreapp3.1\WeChip.DomainModel.AssemblyInfo.cs
+C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.DomainModel\obj\Debug\netcoreapp3.1\WeChip.DomainModel.csproj.CoreCompileInputs.cache
+C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.DomainModel\obj\Debug\netcoreapp3.1\WeChip.DomainModel.dll
+C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.DomainModel\obj\Debug\netcoreapp3.1\WeChip.DomainModel.pdb

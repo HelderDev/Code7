@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using WeChip.DomainModel.Enums;
 using WeChip.Helpers;
 using WeChip.Model.ViewModels;
 using WeChip.Repository.Concrete;
@@ -74,54 +75,46 @@ namespace WeChip.Controllers
             var selectedProducts = _productService.GetAllSelected(productCodes);
             decimal productsPrice = selectedProducts.Sum(p => p.Price);
             bool hasHardware = selectedProducts
-                                .Select(s => s.Type == Domain.Enums.TypeEnum.HARDWARE)
+                                .Select(s => s.Type == TypeEnum.HARDWARE)
                                 .FirstOrDefault();
 
             #region Regras de Venda
-            if (selectedProducts == null || !selectedProducts.Any())
-            {
-                ViewBag.ErrorMessage = "É preciso selecionar ao menos 1 produto!";
-                return View(linkOfferClient);
-            }
+            //if (selectedProducts == null || !selectedProducts.Any())
+            //{
+            //    ViewBag.ErrorMessage = "É preciso selecionar ao menos 1 produto!";
+            //    return View(linkOfferClient);
+            //}
 
-            if (productsPrice > decimal.Parse(linkOfferClient.Client.Credit))
-            {
-                ViewBag.ErrorMessage = "Cliente não possui Crédito suficiente!";
-                return View(linkOfferClient);
-            }
+            //if (productsPrice > decimal.Parse(linkOfferClient.Client.Credit))
+            //{
+            //    ViewBag.ErrorMessage = "Cliente não possui Crédito suficiente!";
+            //    return View(linkOfferClient);
+            //}
 
-            if (hasHardware && (string.IsNullOrEmpty(linkOfferClient.Address.CEP)
-                || string.IsNullOrEmpty(linkOfferClient.Address.City)
-                || string.IsNullOrEmpty(linkOfferClient.Address.Complement)
-                || string.IsNullOrEmpty(linkOfferClient.Address.Neighbourhood)
-                || string.IsNullOrEmpty(linkOfferClient.Address.NumberAddress)
-                || string.IsNullOrEmpty(linkOfferClient.Address.Street)
-                || string.IsNullOrEmpty(linkOfferClient.Address.State)
-                ))
-            {
-                ViewBag.ErrorMessage = "Produto HARDWARE Selecionado! Obrigatório o preenchimento dos dados de endereço.";
-                return View(linkOfferClient);
-            }
+            //if (hasHardware && (string.IsNullOrEmpty(linkOfferClient.Address.CEP)
+            //    || string.IsNullOrEmpty(linkOfferClient.Address.City)
+            //    || string.IsNullOrEmpty(linkOfferClient.Address.Complement)
+            //    || string.IsNullOrEmpty(linkOfferClient.Address.Neighbourhood)
+            //    || string.IsNullOrEmpty(linkOfferClient.Address.NumberAddress)
+            //    || string.IsNullOrEmpty(linkOfferClient.Address.Street)
+            //    || string.IsNullOrEmpty(linkOfferClient.Address.State)
+            //    ))
+            //{
+            //    ViewBag.ErrorMessage = "Produto HARDWARE Selecionado! Obrigatório o preenchimento dos dados de endereço.";
+            //    return View(linkOfferClient);
+            //}
             #endregion
 
             var client = _clientService.Get(linkOfferClient.Client.CPF);
-
-            if ((!string.IsNullOrEmpty(linkOfferClient.Address.CEP)
-                && !string.IsNullOrEmpty(linkOfferClient.Address.City)
-                && !string.IsNullOrEmpty(linkOfferClient.Address.Complement)
-                && !string.IsNullOrEmpty(linkOfferClient.Address.Neighbourhood)
-                && !string.IsNullOrEmpty(linkOfferClient.Address.NumberAddress)
-                && !string.IsNullOrEmpty(linkOfferClient.Address.Street)
-                && !string.IsNullOrEmpty(linkOfferClient.Address.State)
-                ))
-            {
-                client.DeliveryClientAddress = linkOfferClient.Address.ToAddress();
+            client.DeliveryClientAddress = linkOfferClient.Address != null ? linkOfferClient.Address.ToAddress() : null;
+            client.Products = selectedProducts;
+            if (client.CanBuy()) {
+                client.Status = _statusService.Get(0009);
+                client.Credit -= productsPrice;
+                _clientService.Update(client);
             }
-            client.Products = selectedProducts.ToList();
 
-            client.Status = _statusService.Get(0009);
-            client.Credit -= productsPrice;
-            _clientService.Update(client);
+           
             return View(linkOfferClient);
         }
     }

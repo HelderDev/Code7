@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WeChip.Domain\WeChip.Data.csproj" />
+    <ProjectReference Include="..\WeChip.Data\WeChip.Data.csproj" />
   </ItemGroup>
 
 </Project>

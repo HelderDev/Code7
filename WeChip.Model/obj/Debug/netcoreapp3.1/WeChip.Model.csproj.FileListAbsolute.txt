@@ -22,3 +22,5 @@ C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.Model\obj\Debug\netcoreapp3.1
 C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.Model\obj\Debug\netcoreapp3.1\WeChip.Model.pdb
 C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.Model\bin\Debug\netcoreapp3.1\WeChip.Data.dll
 C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.Model\bin\Debug\netcoreapp3.1\WeChip.Data.pdb
+C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.Model\bin\Debug\netcoreapp3.1\WeChip.DomainModel.dll
+C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip.Model\bin\Debug\netcoreapp3.1\WeChip.DomainModel.pdb

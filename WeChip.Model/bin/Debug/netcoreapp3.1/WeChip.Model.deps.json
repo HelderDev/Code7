@@ -783,8 +783,16 @@
         }
       },
       "WeChip.Data/1.0.0": {
+        "dependencies": {
+          "WeChip.DomainModel": "1.0.0"
+        },
         "runtime": {
           "WeChip.Data.dll": {}
+        }
+      },
+      "WeChip.DomainModel/1.0.0": {
+        "runtime": {
+          "WeChip.DomainModel.dll": {}
         }
       }
     }
@@ -1335,6 +1343,11 @@
       "hashPath": "system.xml.xdocument.4.0.11.nupkg.sha512"
     },
     "WeChip.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "WeChip.DomainModel/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

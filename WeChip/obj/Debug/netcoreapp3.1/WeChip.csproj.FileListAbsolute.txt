@@ -254,3 +254,5 @@ C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip\bin\Debug\netcoreapp3.1\WeChi
 C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip\bin\Debug\netcoreapp3.1\WeChip.Data.pdb
 C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip\bin\Debug\netcoreapp3.1\WeChip.Repository.dll
 C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip\bin\Debug\netcoreapp3.1\WeChip.Repository.pdb
+C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip\bin\Debug\netcoreapp3.1\WeChip.DomainModel.dll
+C:\Users\hcavalcantea\Documents\PRepo\Code7\WeChip\bin\Debug\netcoreapp3.1\WeChip.DomainModel.pdb
