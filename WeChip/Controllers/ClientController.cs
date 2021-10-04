@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using WeChip.DomainModel.Enums;
+using WeChip.DomainModel.Extensions;
 using WeChip.Helpers;
 using WeChip.Model.ViewModels;
 using WeChip.Repository.Concrete;
@@ -106,7 +107,7 @@ namespace WeChip.Controllers
             #endregion
 
             var client = _clientService.Get(linkOfferClient.Client.CPF);
-            client.DeliveryClientAddress = linkOfferClient.Address != null ? linkOfferClient.Address.ToAddress() : null;
+            client.DeliveryClientAddress = linkOfferClient.Address !=null && !linkOfferClient.Address.IsAnyNullOrEmpty() ? linkOfferClient.Address.ToAddress() : null;
             client.Products = selectedProducts;
             if (client.CanBuy()) {
                 client.Status = _statusService.Get(0009);
