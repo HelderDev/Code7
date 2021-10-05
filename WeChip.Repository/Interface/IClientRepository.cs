@@ -34,5 +34,11 @@ namespace WeChip.Repository.Interface
         /// </summary>
         /// <param name="client">Objeto cliente</param>
         void Update(ClientModel client);
+
+        /// <summary>
+        /// Cria uma carga genérica para teste
+        /// </summary>
+        /// <returns></returns>
+        List<ClientModel> LoadClientDump();
     }
 }

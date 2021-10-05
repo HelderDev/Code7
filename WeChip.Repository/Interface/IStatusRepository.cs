@@ -7,6 +7,12 @@ namespace WeChip.Repository.Interface
     public interface IStatusRepository
     {
         /// <summary>
+        /// Retorna todos os Status, exceto FreeName - 0001
+        /// </summary>
+        /// <returns></returns>
+        IEnumerable<StatusModel> GetAllAvailable();
+
+        /// <summary>
         /// Retorna todos os Status disponíveis
         /// </summary>
         /// <returns></returns>

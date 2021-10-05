@@ -17,5 +17,10 @@ namespace WeChip.Repository.Concrete
         {
             return LoadDump.LoadStatus();
         }
+
+        IEnumerable<StatusModel> IStatusRepository.GetAllAvailable()
+        {
+            return LoadDump.LoadStatus().Where(s=>s.StatusCode != StatusEnum.FreeName);
+        }
     }
 }

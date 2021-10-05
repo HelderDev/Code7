@@ -63,13 +63,16 @@ namespace WeChip.Repository.Concrete
             {
                 throw ex;
             }
-
         }
-
         IEnumerable<ClientModel> IClientRepository.GetAllAvailable()
         {
             return LoadFromMemory.LoadClient() != null && LoadFromMemory.LoadClient().Any() ?
                 LoadFromMemory.LoadClient().Where(s => !s.Status.TerminateClient) : null;
+        }
+
+        List<ClientModel> IClientRepository.LoadClientDump()
+        {
+            return LoadFromMemory.LoadClientDump();
         }
     }
 }

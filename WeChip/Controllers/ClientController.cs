@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Collections.Generic;
 using System.Linq;
 using WeChip.DomainModel.Enums;
 using WeChip.DomainModel.Extensions;
@@ -59,10 +60,16 @@ namespace WeChip.Controllers
             }
 
         }
-        public IActionResult OfferClient(string flowMessage = null, MessageTypeEnum messageType = MessageTypeEnum.none)
+        public IActionResult OfferClient(string flowMessage = null,
+            MessageTypeEnum messageType = MessageTypeEnum.none,
+            List<ClientModel> clientsDump = null)
         {
             //Busca apenas os clientes disponiveis para a venda
             var clients = _clientRepository.GetAllAvailable();
+
+            //Caso a carga de clientes tenha sido carregada estaticamente
+            if (clientsDump != null && clientsDump.Any())
+                clients.ToList().AddRange(clientsDump);
 
             //Popula a lista de clientes que será exibida na tela
             var offer = new OfferViewModel()
@@ -88,7 +95,7 @@ namespace WeChip.Controllers
                 linkOfferClient.Products = products.ToList().ToProductList();
 
             //Preenche a lista de possiveis status que será exibida na tela
-            ViewBag.StatusList = _statusRepository.GetAll().ToList().ToStatus();
+            ViewBag.StatusList = _statusRepository.GetAllAvailable().ToList().ToStatus();
             return View(linkOfferClient);
         }
         [HttpPost]
@@ -155,7 +162,7 @@ namespace WeChip.Controllers
                     _clientRepository.Update(currentClient);
 
                     //Preenche os valores de StatusList novamente no objeto de dropdown da tela
-                    ViewBag.StatusList = _statusRepository.GetAll().ToList().ToStatus();
+                    ViewBag.StatusList = _statusRepository.GetAllAvailable().ToList().ToStatus();
 
                     ViewBag.ErrorMessage = client.ErrorMessage;
                     return View(linkOfferClient);
@@ -179,7 +186,7 @@ namespace WeChip.Controllers
                 _clientRepository.Update(currentClient);
 
                 //Preenche os valores de StatusList novamente no objeto de dropdown da tela
-                ViewBag.StatusList = _statusRepository.GetAll().ToList().ToStatus();
+                ViewBag.StatusList = _statusRepository.GetAllAvailable().ToList().ToStatus();
 
                 //Caso não consiga efetuar a compra, é exibido o motivo na tela para o cliente
                 ViewBag.ErrorMessage = client.ErrorMessage;
@@ -188,11 +195,17 @@ namespace WeChip.Controllers
             catch (System.Exception ex)
             {
                 //Preenche os valores de StatusList novamente no objeto de dropdown da tela
-                ViewBag.StatusList = _statusRepository.GetAll().ToList().ToStatus();
+                ViewBag.StatusList = _statusRepository.GetAllAvailable().ToList().ToStatus();
                 ViewBag.ErrorMessage = ex.Message;
                 return View(linkOfferClient);
             }
 
+        }
+
+        public IActionResult LoadClientDump()
+        {
+            var clients = _clientRepository.LoadClientDump();
+            return RedirectToAction("OfferClient", new { clientsDump = clients });
         }
     }
 }
