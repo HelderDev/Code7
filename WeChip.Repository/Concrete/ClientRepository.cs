@@ -20,13 +20,29 @@ namespace WeChip.Repository.Concrete
 
         void IClientRepository.Insert(ClientModel client)
         {
-            Insert(client);
+            try
+            {
+                Insert(client);
+            }
+            catch (System.Exception ex)
+            {
+                throw ex;
+            }
+
         }
         void IClientRepository.Update(ClientModel client)
         {
-            var cli = Get(client.CPF);
-            Delete(cli);
-            Insert(cli);
+            try
+            {
+                var cli = Get(client.CPF);
+                Delete(cli);
+                Insert(cli);
+            }
+            catch (System.Exception ex)
+            {
+
+                throw ex;
+            }
         }
         private ClientModel Get(string CPF)
         {
@@ -38,7 +54,15 @@ namespace WeChip.Repository.Concrete
         }
         private void Insert(ClientModel client)
         {
-            LoadFromMemory.Insert(client);
+            try
+            {
+                LoadFromMemory.Insert(client);
+            }
+            catch (System.Exception ex)
+            {
+                throw ex;
+            }
+
         }
 
         IEnumerable<ClientModel> IClientRepository.GetAllAvailable()

@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using WeChip.DomainModel.Enums;
+using System.Text;
 
-namespace WeChip.DomainModel.Models
+namespace WeChip.ViewModel.ViewModels
 {
-    public class StatusModel
+    public class StatusViewModel
     {
         public string Description { get; set; }
         public bool TerminateClient { get; set; }
         public bool AccountSale { get; set; }
-        public StatusEnum StatusCode { get; set; }
+        public short StatusCode { get; set; }
     }
-
 }

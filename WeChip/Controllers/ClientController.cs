@@ -34,20 +34,29 @@ namespace WeChip.Controllers
         [HttpPost]
         public IActionResult RegisterClient(ClientRegisterViewModel clientRegister)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return View(clientRegister);
+                if (!ModelState.IsValid)
+                {
+                    return View(clientRegister);
+                }
+                //Converte o objeto da ViewModel para a DomainModel
+                var client = clientRegister.ToClient();
+
+                //Retorna o objeto de Status 0001 - "Nome Livre"
+                client.Status = _statusRepository.Get(StatusEnum.FreeName);
+
+                //Insere o cliente na base de dados
+                _clientRepository.Insert(client);
+                var message = $"Cliente {clientRegister.Name} cadastrado com sucesso!";
+                return RedirectToAction("Index", "Home", new { viewBagMessage = message });
             }
-            //Converte o objeto da ViewModel para a DomainModel
-            var client = clientRegister.ToClient();
+            catch (System.Exception ex)
+            {
+                var message = ex.Message;
+                return RedirectToAction("Index", "Home", new { viewBagMessage = message });
+            }
 
-            //Retorna o objeto de Status 0001 - "Nome Livre"
-            client.Status = _statusRepository.Get(0001);
-
-            //Insere o cliente na base de dados
-            _clientRepository.Insert(client);
-            var message = $"Cliente {clientRegister.Name} cadastrado com sucesso!";
-            return RedirectToAction("Index", "Home", new { viewBagMessage = message });
         }
         public IActionResult OfferClient(string flowMessage = null)
         {
@@ -77,59 +86,101 @@ namespace WeChip.Controllers
                 linkOfferClient.Products = products.ToList().ToProductList();
 
             //Preenche a lista de possiveis status que será exibida na tela
-            ViewBag.StatusList = _statusRepository.GetAll();
+            ViewBag.StatusList = _statusRepository.GetAll().ToList().ToStatus();
             return View(linkOfferClient);
         }
         [HttpPost]
         public IActionResult LinkOfferClient(LinkOfferClientViewModel linkOfferClient)
         {
-            //Validação se todos os campos foram preenchidos corretamente
-            if (!ModelState.IsValid)
+            try
             {
+                //Validação se todos os campos foram preenchidos corretamente
+                if (!ModelState.IsValid)
+                    return View(linkOfferClient);
+
+                //Retorna todos os códigos de produtos escolhidos
+                var productCodes = linkOfferClient.Products
+                                                    .Where(p => p.IsSelected)
+                                                    .Select(p => int.Parse(p.ProductCode)).ToArray();
+
+                //Retorna todos os produtos escolhidos
+                var selectedProducts = _productRepository.GetAllSelected(productCodes);
+
+                //Retorna a soma do preço de todos os produtos
+                decimal productsPrice = selectedProducts.Sum(p => p.Price);
+
+                //Retorna o objeto DomainModel do cliente
+                var client = _clientRepository.Get(linkOfferClient.Client.CPF);
+
+                //Armazena o cliente atual
+                var currentClient = client;
+
+                //Atualiza o seu status com o status escolhido na tela
+                client.Status = _statusRepository.Get((StatusEnum)short.Parse(linkOfferClient.StatusCode));
+
+                //Associa o endereço na tela ao cliente
+                client.DeliveryClientAddress = linkOfferClient.Address != null && !linkOfferClient.Address.IsAnyNullOrEmpty() ? linkOfferClient.Address.ToAddress() : null;
+
+                //Associa os produtos selecionados ao cliente
+                client.Products = selectedProducts;
+
+                //Verificando se o cliente está tentando efetuar a compra
+                if (client.TriedToBuy())
+                {
+                    //Faz as devidas validações de regra de negócio para confirmar se o cliente pode ou não efetuar a compra
+                    if (client.CanBuy())
+                    {
+                        //Atualiza os créditos do cliente fazendo o cálculo da diferença com base no que foi comprado
+                        client.Credit -= productsPrice;
+
+                        //Atualiza o cliente na base
+                        _clientRepository.Update(currentClient);
+
+                        return RedirectToAction("OfferClient", "Client", new { flowMessage = "Venda realizada com sucesso!" });
+                    }
+                    //Caso ocorra algum erro retorna ao estado inicial
+                    _clientRepository.Update(currentClient);
+
+                    //Preenche os valores de StatusList novamente no objeto de dropdown da tela
+                    ViewBag.StatusList = _statusRepository.GetAll().ToList().ToStatus();
+
+                    ViewBag.ErrorMessage = client.ErrorMessage;
+                    return View(linkOfferClient);
+                }
+
+                //Caso o cliente possua um status FinalizaCliente e possa recusar, o processo é finalizado
+                else if (client.CanRefuse())
+                {
+                    _clientRepository.Update(currentClient);
+                    return RedirectToAction("OfferClient", "Client", new { flowMessage = $"Cliente {client.Name} encerrado com sucesso." });
+                }
+
+                //Verifica se o cliente apenas estava ausente
+                else if (client.CanContinue())
+                {
+                    _clientRepository.Update(currentClient);
+                    return RedirectToAction("OfferClient", "Client", new { flowMessage = $"Cliente {client.Name} não estava disponível \n[Motivo: {client.Status.Description}]" });
+                }
+
+                //Caso ocorra algum erro retorna ao estado inicial
+                client = currentClient;
+                _clientRepository.Update(currentClient);
+
+                //Preenche os valores de StatusList novamente no objeto de dropdown da tela
+                ViewBag.StatusList = _statusRepository.GetAll().ToList().ToStatus();
+
+                //Caso não consiga efetuar a compra, é exibido o motivo na tela para o cliente
+                ViewBag.ErrorMessage = client.ErrorMessage;
+                return View(linkOfferClient);
+            }
+            catch (System.Exception ex)
+            {
+                //Preenche os valores de StatusList novamente no objeto de dropdown da tela
+                ViewBag.StatusList = _statusRepository.GetAll().ToList().ToStatus();
+                ViewBag.ErrorMessage = ex.Message;
                 return View(linkOfferClient);
             }
 
-            //Retorna todos os códigos de produtos escolhidos
-            var productCodes = linkOfferClient.Products
-                                                .Where(p => p.IsSelected)
-                                                .Select(p => int.Parse(p.ProductCode)).ToArray();
-
-            //Retorna todos os produtos escolhidos
-            var selectedProducts = _productRepository.GetAllSelected(productCodes);
-
-            //Retorna a soma do preço de todos os produtos
-            decimal productsPrice = selectedProducts.Sum(p => p.Price);
-
-            //Retorna o objeto DomainModel do cliente
-            var client = _clientRepository.Get(linkOfferClient.Client.CPF);
-
-            //Atualiza o seu status com o status escolhido na tela
-            client.Status = _statusRepository.Get(short.Parse(linkOfferClient.StatusCode));
-
-            //Associa o endereço na tela ao cliente
-            client.DeliveryClientAddress = linkOfferClient.Address != null && !linkOfferClient.Address.IsAnyNullOrEmpty() ? linkOfferClient.Address.ToAddress() : null;
-
-            //Associa os produtos selecionados ao cliente
-            client.Products = selectedProducts;
-
-            //Faz as devidas validações de regra de negócio para confirmar se o cliente pode ou não efetuar a compra
-            if (client.CanBuy())
-            {
-                //Atualiza os créditos do cliente fazendo o cálculo da diferença com base no que foi comprado
-                client.Credit -= productsPrice;
-
-                //Atualiza o cliente na base
-                _clientRepository.Update(client);
-
-                return RedirectToAction("OfferClient", "Client", new { flowMessage = "Venda realizada com sucesso!" });
-            }
-
-            //Caso não consiga efetuar a compra, é exibido o motivo na tela para o cliente
-            ViewBag.ErrorMessage = client.ErrorMessage;
-
-            //Preenche os valores de StatusList novamente no objeto de dropdown da tela
-            ViewBag.StatusList = _statusRepository.GetAll();
-            return View(linkOfferClient);
         }
     }
 }

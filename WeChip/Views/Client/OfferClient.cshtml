@@ -1,4 +1,5 @@
 ﻿@using WeChip.Model.ViewModels
+@using WeChip.DomainModel.Enums
 @model OfferViewModel
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -35,6 +36,9 @@
                                 <th>
                                     Crédito
                                 </th>
+                                <th>
+                                    Status
+                                </th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -42,7 +46,7 @@
                             @if (Model.Clients == null || !Model.Clients.Any())
                             {
                                 <tr>
-                                    <td colspan="3" class="text-center">
+                                    <td colspan="4" class="text-center">
                                         Não há clientes para exibir.
                                     </td>
                                 </tr>
@@ -60,6 +64,31 @@
                                         </td>
                                         <td>
                                             @item.Credit
+                                        </td>
+                                        <td class="text-center">
+                                            @switch (item.Status.StatusCode)
+                                            {
+                                                case StatusEnum.FreeName:
+                                                    <h4 class='badge badge-primary '>@((int)item.Status.StatusCode) - @item.Status.Description</h4>
+                                                    break;
+                                                case StatusEnum.DoNotWishToBeContacted:
+                                                    <h4 class='badge badge-danger '>@((int)item.Status.StatusCode) - @item.Status.Description</h4>
+                                                    break;
+                                                case StatusEnum.ClientAcceptedTheOffer:
+                                                    <h4 class='badge badge-success '>@((int)item.Status.StatusCode) - @item.Status.Description</h4>
+                                                    break;
+                                                case StatusEnum.CallEnded:
+                                                    <h4 class='badge badge-warning '>@((int)item.Status.StatusCode) - @item.Status.Description</h4>
+                                                    break;
+                                                case StatusEnum.Traveled:
+                                                    <h4 class='badge badge-info '>@((int)item.Status.StatusCode) - @item.Status.Description</h4>
+                                                    break;
+                                                case StatusEnum.Deceased:
+                                                    <h4 class='badge badge-secondary '>@((int)item.Status.StatusCode) - @item.Status.Description</h4>
+                                                    break;
+                                            }
+
+
                                         </td>
                                         <td><a class="btn btn-success btn-block" href="@Url.Action("LinkOfferClient", "Client", new {clientCPF = item.CPF })">Ofertar</a></td>
                                     </tr>

@@ -18,8 +18,23 @@ namespace WeChip.DomainModel.Models
         public IEnumerable<ProductModel> Products { get; set; }
         public string ErrorMessage { get; private set; }
 
+
         /// <summary>
-        /// Faz todas as seguintes validações:
+        /// Verificação apenas se o cliente está tentando efetivar a oferta
+        /// </summary>
+        /// <returns></returns>
+        public bool TriedToBuy()
+        {
+            if (!HasClientAcceptedTheOffer())
+            {
+                ErrorMessage = "Antes de efetuar a oferta, preencha corretamente os campos";
+                return false;
+            }
+            return HasClientAcceptedTheOffer();
+        }
+
+        /// <summary>
+        /// Faz as seguintes validações:
         /// > Verifica se há algum produto associado ao cliente
         /// > Verifica se há crédito suficiente para efetuar a compra
         /// > Verifica se o cliente que preencheu com a opção HARDWARE também preencheu o endereço
@@ -29,11 +44,44 @@ namespace WeChip.DomainModel.Models
         public bool CanBuy()
         {
             return IsProductSelected()
-                && HasCreditEnough()
-                && IsHardwareSelectedWithAddress()
-                && HasClientAccepted();
+               && HasCreditEnough()
+               && IsHardwareSelectedWithAddress()
+               && HasClientAccepted();
+        }
+        /// <summary>
+        /// Faz as seguintes validações:
+        /// > Verifica se não há nenhum produto selecionado ou se status está como TerminateClient = true
+        /// </summary>
+        /// <returns></returns>
+        public bool CanRefuse()
+        {
+            if (IsProductSelected() || !Status.TerminateClient)
+            {
+                ErrorMessage = "Para recusar a oferta, por favor, limpe a Lista de Ofertas dos Produtos";
+                return false;
+            }
+            return !IsProductSelected();
+        }
+        /// <summary>
+        /// Verifica se o cliente deseja negociar em outra oportunidade
+        /// </summary>
+        /// <returns></returns>
+        public bool CanContinue()
+        {
+            return !Status.TerminateClient && !Status.AccountSale;
         }
 
+        private bool HasClientAcceptedTheOffer()
+        {
+            if (Status.StatusCode == StatusEnum.ClientAcceptedTheOffer)
+                return true;
+            else
+            {
+                ErrorMessage = "Cliente não aceitou a proposta";
+                return false;
+            }
+
+        }
         /// <summary>
         /// Verifica se há algum produto associado ao cliente
         /// </summary>
@@ -96,5 +144,6 @@ namespace WeChip.DomainModel.Models
                 return false;
             }
         }
+
     }
 }

@@ -2,6 +2,7 @@
 using System.Linq;
 using WeChip.DomainModel.Models;
 using WeChip.Model.ViewModels;
+using WeChip.ViewModel.ViewModels;
 
 namespace WeChip.Helpers
 {
@@ -18,7 +19,7 @@ namespace WeChip.Helpers
             {
 
                 CPF = client.CPF,
-                Credit = decimal.Parse(client.Credit),
+                Credit = !string.IsNullOrEmpty(client.Credit) ? decimal.Parse(client.Credit) : 0,
                 Name = client.Name,
                 Phone = client.Phone
             };
@@ -41,8 +42,8 @@ namespace WeChip.Helpers
                     Name = client.Name,
                     Phone = client.Phone
                 },
-                Status = $"{client.Status.StatusCode.ToString().PadLeft(4, '0')} - {client.Status.Description}",
-                StatusCode = client.Status.StatusCode.ToString().PadLeft(4, '0'),
+                Status = $"{((short)client.Status.StatusCode).ToString().PadLeft(4, '0')} - {client.Status.Description}",
+                StatusCode = ((short)client.Status.StatusCode).ToString().PadLeft(4, '0'),
                 Products = client.Products != null ? client.Products.ToList().ToProductList() : new List<ProductViewModel>()
             };
             if (client.DeliveryClientAddress != null)
@@ -106,5 +107,28 @@ namespace WeChip.Helpers
                 Street = address.Street
             };
         }
+        /// <summary>
+        /// Converte uma lista de Status do DomainModel para uma lista de Status da ViewModel
+        /// </summary>
+        /// <param name="statusModelList">Lista de Status da DomainModel</param>
+        /// <returns></returns>
+        public static List<StatusViewModel> ToStatus(this List<StatusModel> statusModelList)
+        {
+            var statusViewList = new List<StatusViewModel>();
+            foreach (var item in statusModelList)
+            {
+                statusViewList.Add(
+                    new StatusViewModel()
+                    {
+                        AccountSale = item.AccountSale,
+                        Description = item.Description,
+                        StatusCode = (short)item.StatusCode,
+                        TerminateClient = item.TerminateClient
+                    }
+                    );
+            }
+            return statusViewList;
+        }
+
     }
 }

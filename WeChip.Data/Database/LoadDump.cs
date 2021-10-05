@@ -12,42 +12,42 @@ namespace WeChip.Data.Database
             return new List<StatusModel>() {
             new StatusModel
             {
-                StatusCode = 0001,
+                StatusCode = StatusEnum.FreeName,
                 AccountSale = false,
                 TerminateClient = false,
                 Description = "Nome Livre"
             },
              new StatusModel
             {
-                StatusCode = 0007,
+                StatusCode = StatusEnum.DoNotWishToBeContacted,
                 AccountSale = false,
                 TerminateClient = true,
                 Description = "Não deseja ser contatado"
             },
               new StatusModel
             {
-                StatusCode = 0009,
+                StatusCode = StatusEnum.ClientAcceptedTheOffer,
                 AccountSale = true,
                 TerminateClient = true,
-                Description = "Cliente Aceitou Oferta "
+                Description = "Cliente Aceitou Oferta"
             },
                new StatusModel
             {
-                StatusCode = 0015,
+                StatusCode = StatusEnum.CallEnded,
                 AccountSale = false,
                 TerminateClient = false,
                 Description = "Caiu a ligação"
             },
                 new StatusModel
             {
-                StatusCode = 0019,
+                StatusCode = StatusEnum.Traveled,
                 AccountSale = false,
                 TerminateClient = false,
                 Description = "Viajou"
             },
                  new StatusModel
             {
-                StatusCode = 0021,
+                StatusCode = StatusEnum.Deceased,
                 AccountSale = false,
                 TerminateClient = true,
                 Description = "Falecido :("

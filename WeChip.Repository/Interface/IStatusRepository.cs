@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using WeChip.DomainModel.Enums;
 using WeChip.DomainModel.Models;
 
 namespace WeChip.Repository.Interface
@@ -15,7 +16,7 @@ namespace WeChip.Repository.Interface
         /// </summary>
         /// <param name="statusCode">Código do Status a retornar</param>
         /// <returns></returns>
-        StatusModel Get(short statusCode);
+        StatusModel Get(StatusEnum statusCode);
 
     }
 }
