@@ -43,7 +43,7 @@ namespace WeChip.Helpers
                     Phone = client.Phone
                 },
                 Status = $"{((short)client.Status.StatusCode).ToString().PadLeft(4, '0')} - {client.Status.Description}",
-                StatusCode = ((short)client.Status.StatusCode).ToString().PadLeft(4, '0'),
+                StatusCode = client.Status.StatusCode,
                 Products = client.Products != null ? client.Products.ToList().ToProductList() : new List<ProductViewModel>()
             };
             if (client.DeliveryClientAddress != null)

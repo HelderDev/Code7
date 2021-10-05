@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using WeChip.Enums;
 using WeChip.Models;
 
 namespace WeChip.Controllers
@@ -22,9 +23,10 @@ namespace WeChip.Controllers
         /// </summary>
         /// <param name="viewBagMessage">Mensagem recebida da ClientController quando um novo cliente é cadastrado</param>
         /// <returns></returns>
-        public IActionResult Index(string viewBagMessage = null)
+        public IActionResult Index(string viewBagMessage = null, MessageTypeEnum messageType = MessageTypeEnum.none)
         {
             ViewBag.FlowMessage = viewBagMessage;
+            ViewBag.MessageType = messageType;
             return View();
         }
        

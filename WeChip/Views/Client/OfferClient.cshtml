@@ -11,7 +11,7 @@
     {
         <div class="row">
             <div class="col">
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <div class="@($"alert alert-{ViewBag.MessageType} alert-dismissible fade show")" role="alert">
                     <strong>@ViewBag.FlowMessage</strong>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -21,88 +21,92 @@
         </div>
     }
     <form asp-action="OfferClient" asp-controller="Client" method="post">
-        <div class="row">
-            <div class="col">
-                <div class="table-responsive">
-                    <table class="table table-hover table-bordered">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th>
-                                    Nome
-                                </th>
-                                <th>
-                                    CPF
-                                </th>
-                                <th>
-                                    Crédito
-                                </th>
-                                <th>
-                                    Status
-                                </th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @if (Model.Clients == null || !Model.Clients.Any())
-                            {
-                                <tr>
-                                    <td colspan="4" class="text-center">
-                                        Não há clientes para exibir.
-                                    </td>
-                                </tr>
-                            }
-                            else
-                            {
-                                @foreach (var item in Model.Clients)
-                                {
-                                    <tr>
-                                        <td>
-                                            @item.Name
-                                        </td>
-                                        <td>
-                                            @item.CPF
-                                        </td>
-                                        <td>
-                                            @item.Credit
-                                        </td>
-                                        <td class="text-center">
-                                            @switch (item.Status.StatusCode)
-                                            {
-                                                case StatusEnum.FreeName:
-                                                    <h4 class='badge badge-primary '>@((int)item.Status.StatusCode) - @item.Status.Description</h4>
-                                                    break;
-                                                case StatusEnum.DoNotWishToBeContacted:
-                                                    <h4 class='badge badge-danger '>@((int)item.Status.StatusCode) - @item.Status.Description</h4>
-                                                    break;
-                                                case StatusEnum.ClientAcceptedTheOffer:
-                                                    <h4 class='badge badge-success '>@((int)item.Status.StatusCode) - @item.Status.Description</h4>
-                                                    break;
-                                                case StatusEnum.CallEnded:
-                                                    <h4 class='badge badge-warning '>@((int)item.Status.StatusCode) - @item.Status.Description</h4>
-                                                    break;
-                                                case StatusEnum.Traveled:
-                                                    <h4 class='badge badge-info '>@((int)item.Status.StatusCode) - @item.Status.Description</h4>
-                                                    break;
-                                                case StatusEnum.Deceased:
-                                                    <h4 class='badge badge-secondary '>@((int)item.Status.StatusCode) - @item.Status.Description</h4>
-                                                    break;
-                                            }
-
-
-                                        </td>
-                                        <td><a class="btn btn-success btn-block" href="@Url.Action("LinkOfferClient", "Client", new {clientCPF = item.CPF })">Ofertar</a></td>
-                                    </tr>
-                                }
-                            }
-
-                        </tbody>
-                    </table>
-                </div>
-
+        <div class="card">
+            <div class="card-header">
+                Clientes disponíveis
             </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <div class="table-responsive">
+                            <table class="table table-hover table-bordered">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>
+                                            Nome
+                                        </th>
+                                        <th>
+                                            CPF
+                                        </th>
+                                        <th>
+                                            Crédito
+                                        </th>
+                                        <th>
+                                            Status
+                                        </th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Model.Clients == null || !Model.Clients.Any())
+                                    {
+                                        <tr>
+                                            <td colspan="4" class="text-center">
+                                                Não há clientes para exibir.
+                                            </td>
+                                        </tr>
+                                    }
+                                    else
+                                    {
+                                        @foreach (var item in Model.Clients)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @item.Name
+                                                </td>
+                                                <td>
+                                                    @item.CPF
+                                                </td>
+                                                <td>
+                                                    @item.Credit
+                                                </td>
+                                                <td class="text-center">
+                                                    @switch (item.Status.StatusCode)
+                                                    {
+                                                        case StatusEnum.FreeName:
+                                                            <h4 class='badge badge-primary '>@((int)item.Status.StatusCode) - @item.Status.Description</h4>
+                                                            break;
+                                                        case StatusEnum.DoNotWishToBeContacted:
+                                                            <h4 class='badge badge-danger '>@((int)item.Status.StatusCode) - @item.Status.Description</h4>
+                                                            break;
+                                                        case StatusEnum.ClientAcceptedTheOffer:
+                                                            <h4 class='badge badge-success '>@((int)item.Status.StatusCode) - @item.Status.Description</h4>
+                                                            break;
+                                                        case StatusEnum.CallEnded:
+                                                            <h4 class='badge badge-warning '>@((int)item.Status.StatusCode) - @item.Status.Description</h4>
+                                                            break;
+                                                        case StatusEnum.Traveled:
+                                                            <h4 class='badge badge-info '>@((int)item.Status.StatusCode) - @item.Status.Description</h4>
+                                                            break;
+                                                        case StatusEnum.Deceased:
+                                                            <h4 class='badge badge-secondary '>@((int)item.Status.StatusCode) - @item.Status.Description</h4>
+                                                            break;
+                                                    }
 
+
+                                                </td>
+                                                <td><a class="btn btn-success btn-block" href="@Url.Action("LinkOfferClient", "Client", new {clientCPF = item.CPF })">Ofertar</a></td>
+                                            </tr>
+                                        }
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
     </form>
 </div>
 <script>

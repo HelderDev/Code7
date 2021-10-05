@@ -4,6 +4,7 @@ using System.Linq;
 using WeChip.DomainModel.Enums;
 using WeChip.DomainModel.Extensions;
 using WeChip.DomainModel.Models;
+using WeChip.Enums;
 using WeChip.Helpers;
 using WeChip.Model.ViewModels;
 using WeChip.Repository.Concrete;
@@ -49,16 +50,16 @@ namespace WeChip.Controllers
                 //Insere o cliente na base de dados
                 _clientRepository.Insert(client);
                 var message = $"Cliente {clientRegister.Name} cadastrado com sucesso!";
-                return RedirectToAction("Index", "Home", new { viewBagMessage = message });
+                return RedirectToAction("Index", "Home", new { viewBagMessage = message, messageType = MessageTypeEnum.success });
             }
             catch (System.Exception ex)
             {
                 var message = ex.Message;
-                return RedirectToAction("Index", "Home", new { viewBagMessage = message });
+                return RedirectToAction("Index", "Home", new { viewBagMessage = message, messageType = MessageTypeEnum.danger });
             }
 
         }
-        public IActionResult OfferClient(string flowMessage = null)
+        public IActionResult OfferClient(string flowMessage = null, MessageTypeEnum messageType = MessageTypeEnum.none)
         {
             //Busca apenas os clientes disponiveis para a venda
             var clients = _clientRepository.GetAllAvailable();
@@ -71,6 +72,7 @@ namespace WeChip.Controllers
 
             //Caso seja um redirect de página, é armazenado uma mensagem.
             ViewBag.FlowMessage = flowMessage;
+            ViewBag.MessageType = messageType;
             return View(offer);
         }
         public IActionResult LinkOfferClient(string clientCPF)
@@ -112,11 +114,22 @@ namespace WeChip.Controllers
                 //Retorna o objeto DomainModel do cliente
                 var client = _clientRepository.Get(linkOfferClient.Client.CPF);
 
-                //Armazena o cliente atual
-                var currentClient = client;
+                //Armazena o cliente atual em um novo objeto
+                var currentClient = new ClientModel()
+                {
+                    Name = client.Name,
+                    CPF = client.CPF,
+                    Credit = client.Credit,
+                    DeliveryClientAddress = client.DeliveryClientAddress,
+                    Phone = client.Phone,
+                    Products = client.Products,
+                    Status = client.Status
+                };
+
+
 
                 //Atualiza o seu status com o status escolhido na tela
-                client.Status = _statusRepository.Get((StatusEnum)short.Parse(linkOfferClient.StatusCode));
+                client.Status = _statusRepository.Get(linkOfferClient.StatusCode);
 
                 //Associa o endereço na tela ao cliente
                 client.DeliveryClientAddress = linkOfferClient.Address != null && !linkOfferClient.Address.IsAnyNullOrEmpty() ? linkOfferClient.Address.ToAddress() : null;
@@ -134,9 +147,9 @@ namespace WeChip.Controllers
                         client.Credit -= productsPrice;
 
                         //Atualiza o cliente na base
-                        _clientRepository.Update(currentClient);
+                        _clientRepository.Update(client);
 
-                        return RedirectToAction("OfferClient", "Client", new { flowMessage = "Venda realizada com sucesso!" });
+                        return RedirectToAction("OfferClient", "Client", new { flowMessage = "Venda realizada com sucesso!", messageType = MessageTypeEnum.success });
                     }
                     //Caso ocorra algum erro retorna ao estado inicial
                     _clientRepository.Update(currentClient);
@@ -151,19 +164,18 @@ namespace WeChip.Controllers
                 //Caso o cliente possua um status FinalizaCliente e possa recusar, o processo é finalizado
                 else if (client.CanRefuse())
                 {
-                    _clientRepository.Update(currentClient);
-                    return RedirectToAction("OfferClient", "Client", new { flowMessage = $"Cliente {client.Name} encerrado com sucesso." });
+                    _clientRepository.Update(client);
+                    return RedirectToAction("OfferClient", "Client", new { flowMessage = $"Cliente {client.Name} encerrado com sucesso.", messageType = MessageTypeEnum.secondary });
                 }
 
                 //Verifica se o cliente apenas estava ausente
                 else if (client.CanContinue())
                 {
-                    _clientRepository.Update(currentClient);
-                    return RedirectToAction("OfferClient", "Client", new { flowMessage = $"Cliente {client.Name} não estava disponível \n[Motivo: {client.Status.Description}]" });
+                    _clientRepository.Update(client);
+                    return RedirectToAction("OfferClient", "Client", new { flowMessage = $"Cliente {client.Name} não estava disponível \n[Motivo: {client.Status.Description}]", messageType = MessageTypeEnum.info });
                 }
 
                 //Caso ocorra algum erro retorna ao estado inicial
-                client = currentClient;
                 _clientRepository.Update(currentClient);
 
                 //Preenche os valores de StatusList novamente no objeto de dropdown da tela

@@ -36,7 +36,7 @@ namespace WeChip.Repository.Concrete
             {
                 var cli = Get(client.CPF);
                 Delete(cli);
-                Insert(cli);
+                Insert(client);
             }
             catch (System.Exception ex)
             {
@@ -46,7 +46,8 @@ namespace WeChip.Repository.Concrete
         }
         private ClientModel Get(string CPF)
         {
-            return LoadFromMemory.LoadClient().FirstOrDefault(c => c.CPF == CPF);
+            return LoadFromMemory.LoadClient() != null && LoadFromMemory.LoadClient().Any() ?
+             LoadFromMemory.LoadClient().FirstOrDefault(c => c.CPF == CPF) : null;
         }
         private void Delete(ClientModel client)
         {
@@ -67,7 +68,8 @@ namespace WeChip.Repository.Concrete
 
         IEnumerable<ClientModel> IClientRepository.GetAllAvailable()
         {
-            return LoadFromMemory.LoadClient().Where(s => !s.Status.TerminateClient);
+            return LoadFromMemory.LoadClient() != null && LoadFromMemory.LoadClient().Any() ?
+                LoadFromMemory.LoadClient().Where(s => !s.Status.TerminateClient) : null;
         }
     }
 }

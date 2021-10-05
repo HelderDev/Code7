@@ -1,5 +1,5 @@
 ﻿@using WeChip.Model.ViewModels
-
+@using WeChip.DomainModel.Enums
 @model LinkOfferClientViewModel
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -9,22 +9,22 @@
     string badgeColor = string.Empty;
     switch (Model.StatusCode)
     {
-        case "0001":
+        case StatusEnum.FreeName:
             badgeColor = $"<span class='badge badge-primary h-4'>{Model.Status}</span>";
             break;
-        case "0007":
+        case StatusEnum.DoNotWishToBeContacted:
             badgeColor = $"<span class='badge badge-danger h-4'>{Model.Status}</span>";
             break;
-        case "0009":
+        case StatusEnum.ClientAcceptedTheOffer:
             badgeColor = $"<span class='badge badge-success h-4'>{Model.Status}</span>";
             break;
-        case "0015":
+        case StatusEnum.CallEnded:
             badgeColor = $"<span class='badge badge-warning h-4'>{Model.Status}</span>";
             break;
-        case "0019":
+        case StatusEnum.Traveled:
             badgeColor = $"<span class='badge badge-info h-4'>{Model.Status}</span>";
             break;
-        case "0021":
+        case StatusEnum.Deceased:
             badgeColor = $"<span class='badge badge-secondary h-4'>{Model.Status}</span>";
             break;
     }
@@ -217,7 +217,7 @@
         </div>
         <hr />
         <div class="row">
-            <button type="submit" class="btn btn-success btn-block"> Registrar Resposta </button>
+            <button type="submit" class="btn btn-primary btn-block"> Registrar Resposta </button>
         </div>
 
     </form>
