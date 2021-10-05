@@ -184,7 +184,7 @@ namespace WeChip.Test
                 {
                     //Atualiza os créditos do cliente fazendo o cálculo da diferença com base no que foi comprado
                     client.Credit -= productsPrice;
-
+                    client.OfferCode = new System.Guid();
                     //Atualiza o cliente na base
                     _clientRepository.Update(currentClient);
 

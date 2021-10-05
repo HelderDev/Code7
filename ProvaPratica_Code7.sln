@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeChip.DomainModel", "WeChi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeChip.ViewModel", "WeChip.ViewModel\WeChip.ViewModel.csproj", "{1A4B8067-3FE5-4416-AB7A-939A431BB6D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeChip.Test", "WeChip.Test\WeChip.Test.csproj", "{CDEE6017-6A11-4953-8BCB-2CA500CFFEE9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeChip.Test", "WeChip.Test\WeChip.Test.csproj", "{CDEE6017-6A11-4953-8BCB-2CA500CFFEE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeChip.API", "WeChip.API\WeChip.API.csproj", "{11F29EC5-2B70-4C50-8412-30D53A518E91}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{CDEE6017-6A11-4953-8BCB-2CA500CFFEE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CDEE6017-6A11-4953-8BCB-2CA500CFFEE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CDEE6017-6A11-4953-8BCB-2CA500CFFEE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11F29EC5-2B70-4C50-8412-30D53A518E91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11F29EC5-2B70-4C50-8412-30D53A518E91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11F29EC5-2B70-4C50-8412-30D53A518E91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11F29EC5-2B70-4C50-8412-30D53A518E91}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

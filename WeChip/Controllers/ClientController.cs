@@ -202,6 +202,10 @@ namespace WeChip.Controllers
 
         }
 
+        /// <summary>
+        /// Cria uma carga genérica para teste
+        /// </summary>
+        /// <returns></returns>
         public IActionResult LoadClientDump()
         {
             var clients = _clientRepository.LoadClientDump();

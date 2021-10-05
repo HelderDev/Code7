@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WeChip.API</name>
+    </assembly>
+    <members>
+        <member name="M:WeChip.API.Controllers.OfferController.Get(System.String)">
+            <summary>
+            Retorna as informações da oferta
+            </summary>
+            <param name="cpf">CPF do cliente</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

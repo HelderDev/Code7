@@ -18,6 +18,7 @@ namespace WeChip.DomainModel.Models
         public IEnumerable<ProductModel> Products { get; set; }
         public string ErrorMessage { get; private set; }
 
+        public Guid? OfferCode { get; set; }
 
         /// <summary>
         /// Verificação apenas se o cliente está tentando efetivar a oferta
@@ -121,7 +122,10 @@ namespace WeChip.DomainModel.Models
             if (Products.Select(s => s.Type == TypeEnum.HARDWARE)
                                 .FirstOrDefault()
                                 && DeliveryClientAddress != null
-                                && !DeliveryClientAddress.IsAnyNullOrEmpty())
+                                && !DeliveryClientAddress.IsAnyNullOrEmpty()
+                                || 
+                Products.Select(s => s.Type == TypeEnum.SOFTWARE)
+                .FirstOrDefault())
                 return true;
             else
             {

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using WeChip.Data.Helper;
 using WeChip.DomainModel.Models;
 
 namespace WeChip.Domain.Database
@@ -20,7 +21,7 @@ namespace WeChip.Domain.Database
                     ClientList = new List<ClientModel>();
 
                 //Verifica se existe o cliente cadastrado na base
-                if (ClientList.Select(c => c.CPF.Contains(client.CPF)).FirstOrDefault())
+                if (ClientList.Select(c => c.CPF).Contains(client.CPF))
                     throw new System.Exception("Esse CPF já está cadastrado na base");
 
                 ClientList.Add(client);
@@ -62,7 +63,7 @@ namespace WeChip.Domain.Database
                 {
                     new ClientModel()
                     {
-                        CPF = "099.554.570-74",
+                        CPF = GenerateCPF.Generate(),
                         Credit = 0.50m,
                         Name = "CLIENTE SEM CRÉDITO",
                         Phone = "(11) 94002-8922",
@@ -75,7 +76,7 @@ namespace WeChip.Domain.Database
                         }
                     },
                     new ClientModel{
-                        CPF = "068.620.510-32",
+                        CPF = GenerateCPF.Generate(),
                         Credit = 50000.99m,
                         Name = "CLIENTE FULL",
                         Phone = "(21) 94123-4567",
@@ -97,7 +98,7 @@ namespace WeChip.Domain.Database
                         }
                     },
                     new ClientModel{
-                        CPF = "751.093.050-21",
+                        CPF = GenerateCPF.Generate(),
                         Credit = 500.0m,
                         Name = "CLIENTE HARDWARE",
                         Phone = "(21) 94123-4567",
